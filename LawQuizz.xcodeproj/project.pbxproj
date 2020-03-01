@@ -13,6 +13,7 @@
 		F0D7B17D240BE3B50088F03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B17C240BE3B50088F03F /* Assets.xcassets */; };
 		F0D7B180240BE3B50088F03F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B17E240BE3B50088F03F /* LaunchScreen.storyboard */; };
 		F0D7B18A240BE4830088F03F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B189240BE4830088F03F /* GoogleService-Info.plist */; };
+		F0D7B18C240BE86F0088F03F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D7B18B240BE86F0088F03F /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F0D7B17F240BE3B50088F03F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0D7B181240BE3B50088F03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0D7B189240BE4830088F03F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F0D7B18B240BE86F0088F03F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				F0D7B17C240BE3B50088F03F /* Assets.xcassets */,
 				F0D7B17E240BE3B50088F03F /* LaunchScreen.storyboard */,
 				F0D7B188240BE4270088F03F /* Supporting Files */,
+				F0D7B18D240BE87A0088F03F /* Controller */,
 			);
 			path = LawQuizz;
 			sourceTree = "<group>";
@@ -86,6 +89,14 @@
 				F0D7B173240BE3B40088F03F /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F0D7B18D240BE87A0088F03F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F0D7B18B240BE86F0088F03F /* GameViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		F6FAB054E3F335EFD5968B4D /* Frameworks */ = {
@@ -212,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D7B18C240BE86F0088F03F /* GameViewController.swift in Sources */,
 				F0D7B174240BE3B40088F03F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
