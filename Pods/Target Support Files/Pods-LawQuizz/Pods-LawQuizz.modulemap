@@ -1,0 +1,6 @@
+framework module Pods_LawQuizz {
+  umbrella header "Pods-LawQuizz-umbrella.h"
+
+  export *
+  module * { export * }
+}
