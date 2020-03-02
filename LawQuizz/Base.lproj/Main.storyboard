@@ -22,5 +22,90 @@
             </objects>
             <point key="canvasLocation" x="-30" y="55"/>
         </scene>
+        <!--Alert View Controller-->
+        <scene sceneID="LmY-o6-NmT">
+            <objects>
+                <viewController storyboardIdentifier="AlertVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="dyI-2u-VIQ" customClass="AlertViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MYi-iV-Ifj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPx-OK-rxq">
+                                <rect key="frame" x="69.5" y="364" width="275" height="168.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDy-OQ-kmk">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xj4-IC-w9j">
+                                                <rect key="frame" x="8" y="8" width="259" height="44"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="7dw-e2-aeh"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="xj4-IC-w9j" secondAttribute="trailing" id="GB2-bc-jyg"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="xj4-IC-w9j" secondAttribute="bottom" id="JTy-RS-yng"/>
+                                            <constraint firstItem="xj4-IC-w9j" firstAttribute="leading" secondItem="pDy-OQ-kmk" secondAttribute="leadingMargin" id="L3R-ij-XYy"/>
+                                            <constraint firstItem="xj4-IC-w9j" firstAttribute="top" secondItem="pDy-OQ-kmk" secondAttribute="topMargin" id="Tqy-8S-HKX"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nde-DF-7Vm">
+                                        <rect key="frame" x="16" y="76" width="243" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGV-j2-orY">
+                                        <rect key="frame" x="8" y="112.5" width="259" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="som-AX-Wyg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="Merci pour l'info">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapAction:" destination="dyI-2u-VIQ" eventType="touchUpInside" id="tBn-ML-ZH2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Nde-DF-7Vm" firstAttribute="leading" secondItem="WPx-OK-rxq" secondAttribute="leading" constant="16" id="0yn-B9-QAR"/>
+                                    <constraint firstItem="Nde-DF-7Vm" firstAttribute="top" secondItem="pDy-OQ-kmk" secondAttribute="bottom" constant="16" id="4M2-fb-0GU"/>
+                                    <constraint firstItem="NGV-j2-orY" firstAttribute="top" secondItem="Nde-DF-7Vm" secondAttribute="bottom" constant="16" id="7aA-vx-JvC"/>
+                                    <constraint firstItem="pDy-OQ-kmk" firstAttribute="leading" secondItem="WPx-OK-rxq" secondAttribute="leading" id="95j-iA-v70"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="NGV-j2-orY" secondAttribute="bottom" constant="8" id="Bnd-IR-4r3"/>
+                                    <constraint firstAttribute="trailing" secondItem="pDy-OQ-kmk" secondAttribute="trailing" id="M9b-fV-T5q"/>
+                                    <constraint firstItem="NGV-j2-orY" firstAttribute="leading" secondItem="WPx-OK-rxq" secondAttribute="leadingMargin" id="Pkq-ey-EaH"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="NGV-j2-orY" secondAttribute="trailing" id="Zz8-8O-kW7"/>
+                                    <constraint firstAttribute="width" constant="275" id="apW-Ml-iZl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nde-DF-7Vm" secondAttribute="trailing" constant="16" id="k5s-oy-vBu"/>
+                                    <constraint firstItem="pDy-OQ-kmk" firstAttribute="top" secondItem="WPx-OK-rxq" secondAttribute="top" id="k63-rA-wNC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="WPx-OK-rxq" firstAttribute="centerX" secondItem="MYi-iV-Ifj" secondAttribute="centerX" id="9M9-VG-FuQ"/>
+                            <constraint firstItem="WPx-OK-rxq" firstAttribute="centerY" secondItem="MYi-iV-Ifj" secondAttribute="centerY" id="q3A-it-bP0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L9I-Ub-ufs"/>
+                    </view>
+                    <connections>
+                        <outlet property="actionButton" destination="NGV-j2-orY" id="COV-8A-Zpg"/>
+                        <outlet property="bodyLabel" destination="Nde-DF-7Vm" id="nmz-1a-Z49"/>
+                        <outlet property="contentView" destination="WPx-OK-rxq" id="B9B-OZ-SAf"/>
+                        <outlet property="titleLabel" destination="xj4-IC-w9j" id="S5o-JD-lbT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZA3-Xr-TvD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911.59420289855075" y="-660.26785714285711"/>
+        </scene>
     </scenes>
 </document>

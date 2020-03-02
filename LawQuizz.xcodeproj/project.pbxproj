@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1C82A455C497F5BDFCDED326 /* Pods_LawQuizz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB668BB5CBAEA1FD4A6A132D /* Pods_LawQuizz.framework */; };
+		F053656E240D1401007A5D89 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053656D240D1401007A5D89 /* String.swift */; };
+		F0536570240D1446007A5D89 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053656F240D1446007A5D89 /* AlertService.swift */; };
+		F0536572240D14D6007A5D89 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0536571240D14D6007A5D89 /* AlertViewController.swift */; };
 		F0D7B174240BE3B40088F03F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D7B173240BE3B40088F03F /* AppDelegate.swift */; };
 		F0D7B17B240BE3B40088F03F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B179240BE3B40088F03F /* Main.storyboard */; };
 		F0D7B17D240BE3B50088F03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B17C240BE3B50088F03F /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 		3FC8693DAFDB3A68D0E726EE /* Pods-LawQuizz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawQuizz.debug.xcconfig"; path = "Target Support Files/Pods-LawQuizz/Pods-LawQuizz.debug.xcconfig"; sourceTree = "<group>"; };
 		8DCBF854A4E6386CAD2F48F1 /* Pods-LawQuizz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawQuizz.release.xcconfig"; path = "Target Support Files/Pods-LawQuizz/Pods-LawQuizz.release.xcconfig"; sourceTree = "<group>"; };
 		CB668BB5CBAEA1FD4A6A132D /* Pods_LawQuizz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LawQuizz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F053656D240D1401007A5D89 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		F053656F240D1446007A5D89 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		F0536571240D14D6007A5D89 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		F0D7B170240BE3B40088F03F /* LawQuizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LawQuizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D7B173240BE3B40088F03F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D7B17A240BE3B40088F03F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F053656C240D13BB007A5D89 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F053656D240D1401007A5D89 /* String.swift */,
+				F053656F240D1446007A5D89 /* AlertService.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F0D7B167240BE3B40088F03F = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +87,7 @@
 		F0D7B172240BE3B40088F03F /* LawQuizz */ = {
 			isa = PBXGroup;
 			children = (
+				F053656C240D13BB007A5D89 /* Extensions */,
 				F0D7B179240BE3B40088F03F /* Main.storyboard */,
 				F0D7B17C240BE3B50088F03F /* Assets.xcassets */,
 				F0D7B17E240BE3B50088F03F /* LaunchScreen.storyboard */,
@@ -95,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				F0D7B18B240BE86F0088F03F /* GameViewController.swift */,
+				F0536571240D14D6007A5D89 /* AlertViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -223,7 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F053656E240D1401007A5D89 /* String.swift in Sources */,
 				F0D7B18C240BE86F0088F03F /* GameViewController.swift in Sources */,
+				F0536570240D1446007A5D89 /* AlertService.swift in Sources */,
+				F0536572240D14D6007A5D89 /* AlertViewController.swift in Sources */,
 				F0D7B174240BE3B40088F03F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -354,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
