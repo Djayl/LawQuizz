@@ -8,7 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
-
+import Firebase
 
 public enum FirestoreError: Error {
     case offline
@@ -208,5 +208,18 @@ final public class FirestoreService<FirestoreObject: DocumentSerializableProtoco
                }
            })
        }
+    
+    public func updateField(endpoint: Endpoint, data: [String: FieldValue], result: @escaping (FirestoreUpdateResult) -> Void) {
+        document = dataBase.document(endpoint.path)
+        
+        document?.updateData(data, completion: { error in
+            if let error = error {
+                print("Error updating document: \(error)")
+                result(.failure(.offline))
+            } else {
+                result(.success("Document updated with success"))
+            }
+        })
+    }
     
 }

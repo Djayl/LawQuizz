@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ProgressHUD
 
 @available(iOS 13.0, *)
 class SignUpViewController: UIViewController, UITextFieldDelegate {
@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var schoolTextField: UITextField!
+    @IBOutlet weak var pickerView: UIPickerView!
     
     
     
@@ -30,11 +30,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     let authService = AuthService()
     let firestoreService = FirestoreService<Profil>()
     var placeholderLabel = UILabel()
+    let schools = ["","Paris 1", "Paris 2", "Paris 3"]
+    var school = ""
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerView.setValue(Colors.clearBlue, forKeyPath: "textColor")
 //        self.navigationController?.navigationBar.titleTextAttributes =
 //            [NSAttributedString.Key.foregroundColor: UIColor.black,
 //             NSAttributedString.Key.font: UIFont(name: "Quicksand-Bold", size: 21)!]
@@ -61,20 +64,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     private func setupTextFieldsLayer() {
        
         userNameTextField.layer.borderWidth = 1
-        userNameTextField.layer.borderColor = UIColor.systemBlue.cgColor
+        userNameTextField.layer.borderColor = Colors.smoothBlue.cgColor
         emailTextField.layer.borderWidth = 1
-        emailTextField.layer.borderColor = UIColor.systemBlue.cgColor
+        emailTextField.layer.borderColor = Colors.smoothBlue.cgColor
         passwordTextField.layer.borderWidth = 1
-        passwordTextField.layer.borderColor = UIColor.systemBlue.cgColor
+        passwordTextField.layer.borderColor = Colors.smoothBlue.cgColor
         passwordConfirmTextField.layer.borderWidth = 1
-        passwordConfirmTextField.layer.borderColor = UIColor.systemBlue.cgColor
-        schoolTextField.layer.borderWidth = 1
-        schoolTextField.layer.borderColor = UIColor.systemBlue.cgColor
-        
+        passwordConfirmTextField.layer.borderColor = Colors.smoothBlue.cgColor
+
         emailTextField.layer.cornerRadius = 5
         passwordTextField.layer.cornerRadius = 5
         passwordConfirmTextField.layer.cornerRadius = 5
-        schoolTextField.layer.cornerRadius = 5
         userNameTextField.layer.cornerRadius = 5
     }
     
@@ -127,17 +127,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
                presentAlert(with: "Merci de confirmer votre mot de passe")
                return}
-           guard let school = schoolTextField.text, school.isEmptyOrWhitespace() == false else {
-            
-               presentAlert(with: "Merci de renseigner un âge")
-               return}
-        
            authService.signUp(email: email, password: password) { (authResult, error) in
                if error == nil && authResult != nil {
-//                ProgressHUD.show()
+                ProgressHUD.show()
                    guard let currentUser = AuthService.getCurrentUser() else { return }
                    self.getImage { (imageURL) in
-                       let profil = Profil(identifier: currentUser.uid, email: email, userName: userName, imageURL: imageURL, school: school)
+                    let profil = Profil(identifier: currentUser.uid, email: email, userName: userName, imageURL: imageURL, school: self.school)
                        self.saveUserData(profil)
                        self.dismiss(animated: true, completion: nil)
                    }
@@ -149,7 +144,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
        }
     
     private func saveUserData(_ profil: Profil) {
-//        ProgressHUD.showSuccess(NSLocalizedString("Votre compte a été créé", comment: ""))
+        ProgressHUD.showSuccess(NSLocalizedString("Votre compte a été créé", comment: ""))
         firestoreService.saveData(endpoint: .user, identifier: profil.identifier, data: profil.dictionary) { [weak self] result in
             switch result {
             case .success(let successMessage):
@@ -170,13 +165,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             emailTextField.delegate = self
             passwordTextField.delegate = self
             passwordConfirmTextField.delegate = self
-            schoolTextField.delegate = self
+//            schoolTextField.delegate = self
             userNameTextField.delegate = self
             
             emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
             passwordTextField.attributedPlaceholder = NSAttributedString(string: "Mot de passe",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
             passwordConfirmTextField.attributedPlaceholder = NSAttributedString(string: "Confirmer mot de passe",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-            schoolTextField.attributedPlaceholder = NSAttributedString(string: "École",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+//            schoolTextField.attributedPlaceholder = NSAttributedString(string: "École",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
             userNameTextField.attributedPlaceholder = NSAttributedString(string: "Nom d'utilisateur",attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         }
     }
@@ -218,3 +213,23 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+@available(iOS 13.0, *)
+extension SignUpViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return schools.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return schools[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        school = schools[row]
+    }
+    
+}

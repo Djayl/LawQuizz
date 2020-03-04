@@ -11,7 +11,7 @@ import Foundation
 public enum Endpoint {
     case user
     case currentUser
-    case spot
+    case score
     case publicCollection
     case publicSpot(spotId: String)
     case favorite(spotId: String)
@@ -37,8 +37,8 @@ extension Endpoint {
             return "users"
         case .currentUser:
             return "users/\(userId)"
-        case .spot:
-            return "users/\(userId)/spots"
+        case .score:
+            return "users/\(userId)/score"
         case .publicCollection:
             return "spots"
         case let .favorite(spotId):

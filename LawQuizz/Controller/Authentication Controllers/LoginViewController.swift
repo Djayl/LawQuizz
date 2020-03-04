@@ -87,7 +87,7 @@ final class LoginViewController: UIViewController {
            let authService = AuthService()
            authService.signIn(email: email, password: password) { [weak self] authDataResult, error in
                if error == nil && authDataResult != nil {
-                    NotificationCenter.default.post(name: Notification.Name("showSpots"), object: nil)
+//                    NotificationCenter.default.post(name: Notification.Name("showSpots"), object: nil)
                    self?.dismiss(animated: true, completion: nil)
                } else {
                    print("Error loging user: \(error!.localizedDescription)")

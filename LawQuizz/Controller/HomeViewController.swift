@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Kingfisher
 
+@available(iOS 13.0, *)
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var theme1Button: UIButton!
     @IBOutlet weak var theme2Button: UIButton!
@@ -19,20 +20,23 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var theme4Button: UIButton!
     @IBOutlet weak var theme5Button: UIButton!
     @IBOutlet weak var themeStackView: UIStackView!
+    @IBOutlet weak var profileButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
-        setupProfileImageView()
+//        setupProfileImageView()
         setupScoreView()
         setupStackView()
         toggleButtons()
-        
+        setupImageView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        checkIfUserLoggedIn()
+        listenProfilInformation()
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -60,6 +64,13 @@ class HomeViewController: UIViewController {
         }
     }
     
+    @IBAction func goToProfile(_ sender: Any) {
+         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileViewController
+               
+               self.navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    
+    
     private func pushToGameVC(_ data: String) {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "GameVC") as! GameViewController
         secondViewController.thema = data
@@ -83,10 +94,7 @@ class HomeViewController: UIViewController {
         theme5Button.layer.cornerRadius = 10
     }
     
-    private func setupProfileImageView() {
-         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
-    }
-    
+
     private func setupScoreView() {
         scoreView.layer.cornerRadius = 10
         scoreView.layer.shadowColor   = UIColor.black.cgColor
@@ -112,6 +120,46 @@ class HomeViewController: UIViewController {
     private func toggleButtons() {
         theme1Button.setBackgroundColor(color: Colors.clearBlue, forState: .selected)
     }
+    
+    private func checkIfUserLoggedIn() {
+           DispatchQueue.main.async {
+               if AuthService.getCurrentUser() == nil {
+                   let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+                   let nc = UINavigationController(rootViewController: vc)
+                   nc.modalPresentationStyle = .fullScreen
+                   self.present(nc, animated: true, completion: nil)
+               }
+           }
+       }
+    
+    private func setupImageView() {
+        profileButton.layer.cornerRadius = profileButton.frame.height / 2
+        profileButton.clipsToBounds = true
+    }
+    
+    private func getProfileImage(_ profil: Profil) {
+        let urlString = profil.imageURL
+        guard let url = URL(string: urlString) else {return}
+        KingfisherManager.shared.retrieveImage(with: url, options: nil) { result in
+            let image = try? result.get().image
+            if let image = image {
+                self.profileButton.setImage(image, for: .normal)
+            }
+        }
+    }
+    
+    private func listenProfilInformation() {
+           let firestoreService = FirestoreService<Profil>()
+           firestoreService.listenDocument(endpoint: .currentUser) { [weak self] result in
+               switch result {
+               case .success(let profil):
+                   self?.getProfileImage(profil)
+               case .failure(let error):
+                   print(error.localizedDescription)
+                   self?.presentAlert(with: "Erreur réseau")
+               }
+           }
+       }
 
 
 }

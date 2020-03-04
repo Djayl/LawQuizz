@@ -27,6 +27,7 @@
 		F064DED3240E765B00E4CD4E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED2240E765B00E4CD4E /* HomeViewController.swift */; };
 		F064DED5240E7AB800E4CD4E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED4240E7AB800E4CD4E /* UIView.swift */; };
 		F064DED7240E7DD700E4CD4E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED6240E7DD700E4CD4E /* Colors.swift */; };
+		F0AE716B240FD845002E5387 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE716A240FD845002E5387 /* ProfileViewController.swift */; };
 		F0D7B174240BE3B40088F03F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D7B173240BE3B40088F03F /* AppDelegate.swift */; };
 		F0D7B17B240BE3B40088F03F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B179240BE3B40088F03F /* Main.storyboard */; };
 		F0D7B17D240BE3B50088F03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B17C240BE3B50088F03F /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		F064DED2240E765B00E4CD4E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F064DED4240E7AB800E4CD4E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		F064DED6240E7DD700E4CD4E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F0AE716A240FD845002E5387 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F0D7B170240BE3B40088F03F /* LawQuizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LawQuizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D7B173240BE3B40088F03F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D7B17A240BE3B40088F03F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				F0D7B18B240BE86F0088F03F /* GameViewController.swift */,
 				F0536571240D14D6007A5D89 /* AlertViewController.swift */,
 				F064DED2240E765B00E4CD4E /* HomeViewController.swift */,
+				F0AE716A240FD845002E5387 /* ProfileViewController.swift */,
 				F058018B240FC1950040BA8B /* Authentication Controllers */,
 			);
 			path = Controller;
@@ -308,6 +311,7 @@
 			files = (
 				F053656E240D1401007A5D89 /* String.swift in Sources */,
 				F0580193240FC25F0040BA8B /* FirestoreService.swift in Sources */,
+				F0AE716B240FD845002E5387 /* ProfileViewController.swift in Sources */,
 				F058018D240FC1E70040BA8B /* DocumentSerializableProtocol.swift in Sources */,
 				F0580197240FC2B20040BA8B /* Question.swift in Sources */,
 				F064DED7240E7DD700E4CD4E /* Colors.swift in Sources */,
