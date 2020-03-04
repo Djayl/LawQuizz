@@ -26,8 +26,6 @@
 	<string>Main</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Carlito-Regular.ttf</string>
-		<string>Carlito-Bold.ttf</string>
 		<string>SpartanMB-Bold.otf</string>
 		<string>SpartanMB-Regular.otf</string>
 	</array>

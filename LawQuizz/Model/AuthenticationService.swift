@@ -1,0 +1,41 @@
+//
+//  AuthenticationService.swift
+//  LawQuizz
+//
+//  Created by MacBook DS on 04/03/2020.
+//  Copyright © 2020 Djilali Sakkar. All rights reserved.
+//
+
+
+import Foundation
+import Firebase
+
+final public class AuthService {
+    
+    static func getCurrentUser() -> User? {
+        let currentUser = Auth.auth().currentUser
+        
+        if let currentUser = currentUser {
+            return currentUser
+        } else {
+            return nil
+        }
+    }
+    
+    func signUp(email: String, password: String, completion: @escaping AuthDataResultCallback) {
+        Auth.auth().createUser(withEmail: email, password: password, completion: completion)
+    }
+    
+    func signIn(email: String, password: String, completion: @escaping AuthDataResultCallback) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
+    
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+    
+    func resetPassword(email: String, completion: @escaping AuthDataResultCallback) {
+        Auth.auth().sendPasswordReset(withEmail: email)
+    }
+  
+}

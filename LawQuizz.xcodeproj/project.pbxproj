@@ -14,8 +14,16 @@
 		F0536570240D1446007A5D89 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053656F240D1446007A5D89 /* AlertService.swift */; };
 		F0536572240D14D6007A5D89 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0536571240D14D6007A5D89 /* AlertViewController.swift */; };
 		F053D2FF240EFACD0090A1EB /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053D2FE240EFACD0090A1EB /* UIButton.swift */; };
-		F053D302240F05C20090A1EB /* Carlito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F053D300240F05BA0090A1EB /* Carlito-Bold.ttf */; };
-		F053D303240F05CC0090A1EB /* Carlito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F053D301240F05BB0090A1EB /* Carlito-Regular.ttf */; };
+		F0580188240FC14B0040BA8B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580187240FC14B0040BA8B /* SignUpViewController.swift */; };
+		F058018A240FC1810040BA8B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580189240FC1810040BA8B /* LoginViewController.swift */; };
+		F058018D240FC1E70040BA8B /* DocumentSerializableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058018C240FC1E70040BA8B /* DocumentSerializableProtocol.swift */; };
+		F058018F240FC2120040BA8B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058018E240FC2120040BA8B /* Endpoint.swift */; };
+		F0580191240FC2380040BA8B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580190240FC2380040BA8B /* AuthenticationService.swift */; };
+		F0580193240FC25F0040BA8B /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580192240FC25F0040BA8B /* FirestoreService.swift */; };
+		F0580195240FC28A0040BA8B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580194240FC28A0040BA8B /* UIViewController.swift */; };
+		F0580197240FC2B20040BA8B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580196240FC2B20040BA8B /* Question.swift */; };
+		F0580199240FC2D50040BA8B /* Profil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580198240FC2D50040BA8B /* Profil.swift */; };
+		F058019B240FC2F40040BA8B /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */; };
 		F064DED3240E765B00E4CD4E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED2240E765B00E4CD4E /* HomeViewController.swift */; };
 		F064DED5240E7AB800E4CD4E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED4240E7AB800E4CD4E /* UIView.swift */; };
 		F064DED7240E7DD700E4CD4E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED6240E7DD700E4CD4E /* Colors.swift */; };
@@ -37,8 +45,16 @@
 		F053656F240D1446007A5D89 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		F0536571240D14D6007A5D89 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		F053D2FE240EFACD0090A1EB /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		F053D300240F05BA0090A1EB /* Carlito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Carlito-Bold.ttf"; sourceTree = "<group>"; };
-		F053D301240F05BB0090A1EB /* Carlito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Carlito-Regular.ttf"; sourceTree = "<group>"; };
+		F0580187240FC14B0040BA8B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F0580189240FC1810040BA8B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F058018C240FC1E70040BA8B /* DocumentSerializableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSerializableProtocol.swift; sourceTree = "<group>"; };
+		F058018E240FC2120040BA8B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		F0580190240FC2380040BA8B /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		F0580192240FC25F0040BA8B /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		F0580194240FC28A0040BA8B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		F0580196240FC2B20040BA8B /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		F0580198240FC2D50040BA8B /* Profil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profil.swift; sourceTree = "<group>"; };
+		F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		F064DED2240E765B00E4CD4E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F064DED4240E7AB800E4CD4E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		F064DED6240E7DD700E4CD4E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -80,8 +96,32 @@
 				F053656F240D1446007A5D89 /* AlertService.swift */,
 				F064DED4240E7AB800E4CD4E /* UIView.swift */,
 				F053D2FE240EFACD0090A1EB /* UIButton.swift */,
+				F0580194240FC28A0040BA8B /* UIViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F058018B240FC1950040BA8B /* Authentication Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F0580187240FC14B0040BA8B /* SignUpViewController.swift */,
+				F0580189240FC1810040BA8B /* LoginViewController.swift */,
+			);
+			path = "Authentication Controllers";
+			sourceTree = "<group>";
+		};
+		F058019C240FC34E0040BA8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F058018C240FC1E70040BA8B /* DocumentSerializableProtocol.swift */,
+				F058018E240FC2120040BA8B /* Endpoint.swift */,
+				F0580190240FC2380040BA8B /* AuthenticationService.swift */,
+				F0580192240FC25F0040BA8B /* FirestoreService.swift */,
+				F0580196240FC2B20040BA8B /* Question.swift */,
+				F0580198240FC2D50040BA8B /* Profil.swift */,
+				F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F0D7B167240BE3B40088F03F = {
@@ -112,6 +152,7 @@
 				F0D7B188240BE4270088F03F /* Supporting Files */,
 				F0D7B18D240BE87A0088F03F /* Controller */,
 				F064DED6240E7DD700E4CD4E /* Colors.swift */,
+				F058019C240FC34E0040BA8B /* Model */,
 			);
 			path = LawQuizz;
 			sourceTree = "<group>";
@@ -119,8 +160,6 @@
 		F0D7B188240BE4270088F03F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F053D300240F05BA0090A1EB /* Carlito-Bold.ttf */,
-				F053D301240F05BB0090A1EB /* Carlito-Regular.ttf */,
 				F0442E6C240F0ABE000F8BFA /* SpartanMB-Bold.otf */,
 				F0442E6B240F0ABD000F8BFA /* SpartanMB-Regular.otf */,
 				F0D7B181240BE3B50088F03F /* Info.plist */,
@@ -136,6 +175,7 @@
 				F0D7B18B240BE86F0088F03F /* GameViewController.swift */,
 				F0536571240D14D6007A5D89 /* AlertViewController.swift */,
 				F064DED2240E765B00E4CD4E /* HomeViewController.swift */,
+				F058018B240FC1950040BA8B /* Authentication Controllers */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -214,8 +254,6 @@
 				F0442E6E240F0AEB000F8BFA /* SpartanMB-Regular.otf in Resources */,
 				F0D7B17D240BE3B50088F03F /* Assets.xcassets in Resources */,
 				F0D7B17B240BE3B40088F03F /* Main.storyboard in Resources */,
-				F053D303240F05CC0090A1EB /* Carlito-Regular.ttf in Resources */,
-				F053D302240F05C20090A1EB /* Carlito-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,14 +307,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				F053656E240D1401007A5D89 /* String.swift in Sources */,
+				F0580193240FC25F0040BA8B /* FirestoreService.swift in Sources */,
+				F058018D240FC1E70040BA8B /* DocumentSerializableProtocol.swift in Sources */,
+				F0580197240FC2B20040BA8B /* Question.swift in Sources */,
 				F064DED7240E7DD700E4CD4E /* Colors.swift in Sources */,
+				F058018F240FC2120040BA8B /* Endpoint.swift in Sources */,
 				F0D7B18C240BE86F0088F03F /* GameViewController.swift in Sources */,
+				F0580199240FC2D50040BA8B /* Profil.swift in Sources */,
 				F0536570240D1446007A5D89 /* AlertService.swift in Sources */,
+				F0580188240FC14B0040BA8B /* SignUpViewController.swift in Sources */,
 				F064DED5240E7AB800E4CD4E /* UIView.swift in Sources */,
 				F0536572240D14D6007A5D89 /* AlertViewController.swift in Sources */,
 				F0D7B174240BE3B40088F03F /* AppDelegate.swift in Sources */,
 				F064DED3240E765B00E4CD4E /* HomeViewController.swift in Sources */,
+				F058019B240FC2F40040BA8B /* FirebaseStorageManager.swift in Sources */,
 				F053D2FF240EFACD0090A1EB /* UIButton.swift in Sources */,
+				F058018A240FC1810040BA8B /* LoginViewController.swift in Sources */,
+				F0580195240FC28A0040BA8B /* UIViewController.swift in Sources */,
+				F0580191240FC2380040BA8B /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
