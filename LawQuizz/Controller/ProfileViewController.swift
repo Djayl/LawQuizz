@@ -15,10 +15,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var schoolLabel: UILabel!
+    @IBOutlet weak var goodAnswersLabel: UILabel!
+    @IBOutlet weak var wrongAnswersLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImageView()
+        setDeleteButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +36,8 @@ class ProfileViewController: UIViewController {
     private func updateScreenWithProfil(_ profil: Profil) {
         usernameLabel.text = "\(profil.userName.capitalized)"
         schoolLabel.text = "\(profil.school.capitalized)"
+        goodAnswersLabel.text = "Total bonnes réponses: "+"\(profil.goodAnswers)"
+        wrongAnswersLabel.text = "Total mauvaises réponses: "+"\(profil.wrongAnswers)"
     }
     
     private func getImage(_ profil: Profil) {
@@ -58,6 +63,28 @@ class ProfileViewController: UIViewController {
                 self?.presentAlert(with: "Erreur réseau")
             }
         }
+    }
+    
+    @objc private func logOut() {
+           presentAlertWithAction(message: "Êtes-vous sûr de vouloir vous déconnecter?") {
+               let authService = AuthService()
+               do {
+                   try authService.signOut()
+               } catch let signOutError as NSError {
+                   print ("Error signing out: %@", signOutError)
+               }
+               let storyboard = UIStoryboard(name: "Main", bundle: nil)
+               let initial = storyboard.instantiateInitialViewController()
+               UIApplication.shared.keyWindow?.rootViewController = initial
+           }
+       }
+    
+    private func setDeleteButton() {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "logout"), for: .normal)
+        button.sizeToFit()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        button.addTarget(self, action: #selector(logOut), for: .touchUpInside)
     }
     
 }

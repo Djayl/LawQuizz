@@ -38,18 +38,24 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerView.setValue(Colors.clearBlue, forKeyPath: "textColor")
-//        self.navigationController?.navigationBar.titleTextAttributes =
-//            [NSAttributedString.Key.foregroundColor: UIColor.black,
-//             NSAttributedString.Key.font: UIFont(name: "Quicksand-Bold", size: 21)!]
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor.black,
+             NSAttributedString.Key.font: UIFont(name: "SpartanMB-Bold", size: 21)!]
         self.navigationItem.title = "Inscription"
         setupTextFieldsLayer()
-        
+        signUpButton.layer.cornerRadius = 5
         setupTextFields()
         setupImageView()
-        
+        navigationController?.navigationBar.barTintColor = Colors.smoothBlue
         hideKeyboardWhenTappedAround()
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addPhoto)))
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        
     }
 
     
@@ -132,7 +138,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 ProgressHUD.show()
                    guard let currentUser = AuthService.getCurrentUser() else { return }
                    self.getImage { (imageURL) in
-                    let profil = Profil(identifier: currentUser.uid, email: email, userName: userName, imageURL: imageURL, school: self.school)
+                    let profil = Profil(identifier: currentUser.uid, email: email, userName: userName, imageURL: imageURL, school: self.school, totalQuestions: 0, goodAnswers: 0, wrongAnswers: 0)
                        self.saveUserData(profil)
                        self.dismiss(animated: true, completion: nil)
                    }

@@ -28,7 +28,12 @@ final class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         navigationController?.navigationBar.barTintColor = UIColor.white
         setupTextFields()
-        
+        loginButton.layer.cornerRadius = 5
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Actions

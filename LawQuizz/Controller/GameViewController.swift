@@ -360,7 +360,7 @@ class GameViewController: UIViewController {
             case 7...10:
                 print(scorePercentage)
                 secondVC.alertScore = "Score "+"\(scoreLabel)%"
-                secondVC.alertTitle = "Félicitations"
+                secondVC.alertTitle = "Félicitations!"
                 secondVC.alertBody = "Vous êtes impressionnant."
                 secondVC.scoreImage = UIImage(named: "trophy")
             default:

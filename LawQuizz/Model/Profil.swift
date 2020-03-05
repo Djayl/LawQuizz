@@ -14,6 +14,9 @@ struct Profil: Equatable {
     let userName: String
     let imageURL: String
     let school: String
+    let totalQuestions: Int
+    let goodAnswers: Int
+    let wrongAnswers: Int
 
     var dictionary: [String: Any] {
         return [
@@ -21,7 +24,10 @@ struct Profil: Equatable {
             "email": email,
             "userName": userName,
             "imageURL": imageURL,
-            "school": school
+            "school": school,
+            "totalQuestions": totalQuestions,
+            "goodAnswers": goodAnswers,
+            "wrongAnswers": wrongAnswers
         ]
     }
 }
@@ -32,10 +38,12 @@ extension Profil: DocumentSerializableProtocol {
             let email = dictionary["email"] as? String,
             let userName = dictionary["userName"] as? String,
             let imageURL = dictionary["imageURL"] as? String,
-            let school = dictionary["school"] as? String else {return nil}
-            
+            let school = dictionary["school"] as? String,
+            let totalQuestions = dictionary["totalQuestions"] as? Int,
+            let goodAnswers = dictionary["goodAnswers"] as? Int,
+            let wrongAnswers = dictionary["wrongAnswers"] as? Int else {return nil}
         
-        self.init(identifier: identifier, email: email, userName: userName, imageURL: imageURL, school: school)
+        self.init(identifier: identifier, email: email, userName: userName, imageURL: imageURL, school: school, totalQuestions: totalQuestions, goodAnswers: goodAnswers, wrongAnswers: wrongAnswers)
     }
 }
 

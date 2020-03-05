@@ -434,13 +434,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quizz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiX-de-BHX">
-                                                        <rect key="frame" x="124.5" y="75" width="71" height="35"/>
+                                                        <rect key="frame" x="130" y="82" width="60" height="28"/>
                                                         <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrZ-l4-qkA">
-                                                        <rect key="frame" x="234" y="57.5" width="70" height="70"/>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrZ-l4-qkA">
+                                                        <rect key="frame" x="234" y="61" width="70" height="70"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="70" id="41Y-jx-Lzj"/>
@@ -473,14 +473,20 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total questions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSL-Dx-9UE">
-                                                        <rect key="frame" x="16" y="8" width="117" height="22"/>
+                                                        <rect key="frame" x="16" y="8" width="117" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="15"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classement" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz2-Yy-9IZ">
-                                                        <rect key="frame" x="161" y="8" width="111" height="22"/>
+                                                        <rect key="frame" x="161" y="8" width="111" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="15"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOe-YW-WyP">
+                                                        <rect key="frame" x="16" y="33.5" width="111" height="20"/>
+                                                        <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -488,10 +494,13 @@
                                                 <color key="backgroundColor" red="0.82830705520000003" green="0.46424617219999997" blue="0.33838637319999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="5zj-WD-VPm"/>
+                                                    <constraint firstItem="FVg-6Z-bX4" firstAttribute="leading" secondItem="UOe-YW-WyP" secondAttribute="trailing" constant="16" id="7kd-O9-aXU"/>
                                                     <constraint firstItem="oz2-Yy-9IZ" firstAttribute="leading" secondItem="FVg-6Z-bX4" secondAttribute="trailing" constant="16" id="8fk-go-GQZ"/>
+                                                    <constraint firstItem="UOe-YW-WyP" firstAttribute="top" secondItem="JSL-Dx-9UE" secondAttribute="bottom" constant="8" id="K8Y-zV-vX6"/>
                                                     <constraint firstItem="JSL-Dx-9UE" firstAttribute="leading" secondItem="0qp-eg-RT9" secondAttribute="leading" constant="16" id="Kxv-Ap-Tcq"/>
                                                     <constraint firstItem="JSL-Dx-9UE" firstAttribute="top" secondItem="0qp-eg-RT9" secondAttribute="top" constant="8" id="NwO-hj-iaW"/>
                                                     <constraint firstItem="oz2-Yy-9IZ" firstAttribute="top" secondItem="0qp-eg-RT9" secondAttribute="top" constant="8" id="PXA-Hn-zph"/>
+                                                    <constraint firstItem="UOe-YW-WyP" firstAttribute="leading" secondItem="0qp-eg-RT9" secondAttribute="leading" constant="16" id="WEn-RW-7vM"/>
                                                     <constraint firstAttribute="trailing" secondItem="oz2-Yy-9IZ" secondAttribute="trailing" constant="16" id="alF-Xm-aQL"/>
                                                     <constraint firstItem="FVg-6Z-bX4" firstAttribute="leading" secondItem="JSL-Dx-9UE" secondAttribute="trailing" constant="10" id="bF2-aa-imD"/>
                                                     <constraint firstItem="FVg-6Z-bX4" firstAttribute="centerX" secondItem="0qp-eg-RT9" secondAttribute="centerX" id="qZo-sM-k4E"/>
@@ -525,7 +534,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="R2k-Kb-EDq" firstAttribute="trailing" secondItem="sVR-Yh-jGf" secondAttribute="trailing" id="3gp-Ue-KSO"/>
                             <constraint firstItem="R2k-Kb-EDq" firstAttribute="top" secondItem="sVR-Yh-jGf" secondAttribute="top" id="BOR-nu-c6X"/>
@@ -545,6 +554,7 @@
                         <outlet property="theme5Button" destination="MoP-ca-FZ8" id="Fcr-ka-pt2"/>
                         <outlet property="themeStackView" destination="BFa-BJ-SFy" id="SAN-Pt-pKm"/>
                         <outlet property="topView" destination="fdc-4C-JQI" id="X8s-ac-v4h"/>
+                        <outlet property="totalLabel" destination="UOe-YW-WyP" id="QPH-3v-rGi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYS-Iy-ood" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -583,22 +593,44 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SU6-MJ-EZO">
+                                <rect key="frame" x="16" y="180" width="288" height="78"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ew7-kL-Foc">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="29"/>
+                                        <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="20"/>
+                                        <color key="textColor" red="0.55858314040000001" green="0.80242520569999998" blue="0.27042704820000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z44-e3-Unu">
+                                        <rect key="frame" x="0.0" y="49" width="288" height="29"/>
+                                        <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="FXn-kQ-6gE" firstAttribute="leading" secondItem="VCS-4T-cI9" secondAttribute="trailing" constant="16" id="C2W-5V-J6V"/>
                             <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="FXn-kQ-6gE" secondAttribute="trailing" constant="16" id="Jrb-mn-Acy"/>
                             <constraint firstItem="VCS-4T-cI9" firstAttribute="top" secondItem="abW-0i-fXh" secondAttribute="top" constant="40" id="QTa-co-7pN"/>
+                            <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="SU6-MJ-EZO" secondAttribute="trailing" constant="16" id="a0S-av-vpr"/>
+                            <constraint firstItem="SU6-MJ-EZO" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="fKV-Rf-o6l"/>
                             <constraint firstItem="VCS-4T-cI9" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="oUy-X6-wvG"/>
+                            <constraint firstItem="SU6-MJ-EZO" firstAttribute="top" secondItem="VCS-4T-cI9" secondAttribute="bottom" constant="40" id="qAS-RJ-JL1"/>
                             <constraint firstItem="FXn-kQ-6gE" firstAttribute="top" secondItem="VCS-4T-cI9" secondAttribute="top" id="tcN-tU-1Kd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="abW-0i-fXh"/>
                     </view>
                     <navigationItem key="navigationItem" id="0qX-gj-mG7"/>
                     <connections>
+                        <outlet property="goodAnswersLabel" destination="Ew7-kL-Foc" id="0cz-94-o7B"/>
                         <outlet property="profileImageView" destination="VCS-4T-cI9" id="ZCi-Vr-wDR"/>
                         <outlet property="schoolLabel" destination="hqA-s2-FPf" id="AKD-cf-JKB"/>
                         <outlet property="usernameLabel" destination="cia-Tq-la1" id="Byg-RV-4BN"/>
+                        <outlet property="wrongAnswersLabel" destination="z44-e3-Unu" id="CE9-f0-4vS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvs-64-EOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -807,7 +839,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -915,14 +947,14 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ressaisir mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rS5-9i-BKc">
                                         <rect key="frame" x="0.0" y="132" width="288" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                             </stackView>

@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var theme5Button: UIButton!
     @IBOutlet weak var themeStackView: UIStackView!
     @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var totalLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -132,6 +133,10 @@ class HomeViewController: UIViewController {
            }
        }
     
+    private func getProfilInfos(_ profil: Profil) {
+        totalLabel.text = "\(profil.totalQuestions)"
+    }
+    
     private func setupImageView() {
         profileButton.layer.cornerRadius = profileButton.frame.height / 2
         profileButton.clipsToBounds = true
@@ -154,6 +159,7 @@ class HomeViewController: UIViewController {
                switch result {
                case .success(let profil):
                    self?.getProfileImage(profil)
+                   self?.getProfilInfos(profil)
                case .failure(let error):
                    print(error.localizedDescription)
                    self?.presentAlert(with: "Erreur réseau")
