@@ -25,6 +25,21 @@ class AlertService {
         return alertVC
     }
     
+    func scoreAlert(title: String, score: String, body: String, image: UIImage, completion: @escaping () -> Void) -> ScoreAlertViewController {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        
+        let scoreAlertVC = storyboard.instantiateViewController(identifier: "ScoreAlertVC") as! ScoreAlertViewController
+        
+        scoreAlertVC.alertTitle = title
+        scoreAlertVC.alertBody = body
+        scoreAlertVC.alertScore = score
+        scoreAlertVC.scoreImage = image
+//        scoreAlertVC.buttonAction = completion
+        
+        return scoreAlertVC
+    }
+    
      static func showAlert(style: UIAlertController.Style, title: String?, message: String?, actions: [UIAlertAction] = [UIAlertAction(title: "OK", style: .cancel, handler: nil)], completion: (() -> Swift.Void)? = nil) {
             let alert = UIAlertController(title: title, message: message, preferredStyle: style)
             for action in actions {

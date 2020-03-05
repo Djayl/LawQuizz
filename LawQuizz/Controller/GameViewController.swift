@@ -16,10 +16,10 @@ class GameViewController: UIViewController {
     @IBOutlet weak var viewB: UIView!
     @IBOutlet weak var viewc: UIView!
     @IBOutlet weak var viewD: UIView!
-    @IBOutlet weak var subViewA: UIView!
-    @IBOutlet weak var subViewB: UIView!
-    @IBOutlet weak var subViewC: UIView!
-    @IBOutlet weak var subViewD: UIView!
+    @IBOutlet weak var subViewA: ViewShadowed!
+    @IBOutlet weak var subViewB: ViewShadowed!
+    @IBOutlet weak var subViewC: ViewShadowed!
+    @IBOutlet weak var subViewD: ViewShadowed!
     @IBOutlet weak var themaLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var buttonA: UIButton!
@@ -31,7 +31,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var button2Image: UIImageView!
     @IBOutlet weak var button3Image: UIImageView!
     @IBOutlet weak var button4Image: UIImageView!
-    @IBOutlet weak var countdownView: UIView!
+    @IBOutlet weak var progressView: UIProgressView!
     
     
     var thema = ""
@@ -43,24 +43,21 @@ class GameViewController: UIViewController {
     let alertService = AlertService()
     var questions = [Question]()
     var counter = 20
- 
+    var scorePercentage = 0
+    var wrongAnswers = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupSubViews()
-        setupCountDownView()
-//        startTimer()
         themaLabel.text = thema
-        
-        
+        fetchQuestion()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        fetchQuestion()
-//        setTimer()
+
     }
     
     @IBAction func didTapDismiss(_ sender: Any) {
@@ -85,42 +82,30 @@ class GameViewController: UIViewController {
       @IBAction func checkAnswer(_ sender: UIButton) {
        
             if sender.titleLabel?.text == goodAnswer {
-                
                 score += 1
                 questionAnswered += 1
-                
-                stopTimer()
-//                setTimerAndFecth()
-                
+                gameTimer?.invalidate()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.fetchQuestion()
                 }
-//                gameTimer?.invalidate()
-//                counter = 5
-//                scoreLabel.text = "Score: \(score)/\(questionAnswered)"
             } else {
-                score += 0
                 questionAnswered += 1
-                
-//                gameTimer?.invalidate()
-                stopTimer()
-//                counter = 5
-                
-//                setTimer()
-//                scoreLabel.text = "Score: \(score)/\(questionAnswered)"
+                wrongAnswers += 1
+                gameTimer?.invalidate()
                 let alertVC = alertService.alert(title: "Mauvaise réponse! 😐", body: "La bonne réponse était \(goodAnswer)", buttonTitle: "Merci pour l'info 👌🏽") { [weak self] in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self?.fetchQuestion()
                     }
-                    
-//                    self?.setTimerAndFecth()
-//                    self?.gameTimer?.invalidate()
                 }
                 present(alertVC, animated: true)
             }
-//        updateTotalQuestions()
-//            gameOver()
+            gameOver()
         }
+    
+    private func calculateScore() {
+        let percentage = (score/questionAnswered) * 100
+        scorePercentage = percentage
+    }
 
     
     private func checkMark(_ sender: UIButton, _ image: UIImageView) {
@@ -153,59 +138,48 @@ class GameViewController: UIViewController {
         subViewD.layer.cornerRadius = subViewD.frame.height/2
     }
     
-    private func setupCountDownView() {
-        countdownView.layer.cornerRadius = countdownView.frame.height/2
-        countdownView.layer.borderWidth = 5
-        countdownView.layer.borderColor = Colors.smoothBlue.cgColor
-    }
-    
-//    func startTimer() {
-//      progressView.progressTintColor = UIColor.systemGreen
-//          progressView.trackTintColor = UIColor.clear
-//          progressView.progress = 1.0
-//          gameTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
-//      }
+    private func startTimer() {
+      progressView.progressTintColor = UIColor.systemGreen
+          progressView.trackTintColor = UIColor.clear
+          progressView.progress = 1.0
+          gameTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
+      }
       
-//      @objc func updateProgressView() {
-//          progressView.progress -= 0.01/30
-//          if progressView.progress <= 0 {
-//              outOfTime()
-//          } else if progressView.progress <= 0.2 {
-//              progressView.progressTintColor = UIColor.systemRed
-//          } else if progressView.progress <= 0.5 {
-//              progressView.progressTintColor = UIColor.systemOrange
-//          }
-//      }
+      @objc func updateProgressView() {
+          progressView.progress -= 0.01/30
+          if progressView.progress <= 0 {
+              outOfTime()
+          } else if progressView.progress <= 0.2 {
+              progressView.progressTintColor = UIColor.systemRed
+          } else if progressView.progress <= 0.5 {
+              progressView.progressTintColor = UIColor.systemOrange
+          }
+      }
       
-      func outOfTime() {
+      private func outOfTime() {
         gameTimer?.invalidate()
-        
           fetchQuestion()
       }
     
     private func fetchQuestion() {
-
+        
         let category = "category1"
         let randomInt = Int.random(in: 1..<4)
         let answersButton = [buttonA, buttonB, buttonC, buttonD]
         let questionId = "q"+"\(randomInt)"
         
-        
+        if questionAnswered != 10 {
         let firestoreService = FirestoreService<Question>()
         firestoreService.fetchDocument(endpoint: .question(category: category, questionId:questionId)) { [weak self] result in
             switch result {
             case .success(let question):
-                DispatchQueue.main.async {
 
-                    self?.setTimer()
-                }
-//                self?.counter = 5
                 print("NEW QUESTION")
-//                self?.setTimer()
+
                 self?.questions.append(question)
                 self?.displayQuestion(question)
-                
-//                self?.startTimer()
+                self?.startTimer()
+
                 self?.setTitlesForButton(question)
                 self?.hideImage()
                 for button in answersButton {
@@ -215,6 +189,7 @@ class GameViewController: UIViewController {
                 print(error.localizedDescription)
                 self?.presentAlert(with: "Erreur réseau")
             }
+        }
         }
     }
     
@@ -244,20 +219,11 @@ class GameViewController: UIViewController {
         goodAnswer = question.goodAnswer
     }
     
-//    func gameOver() {
-//        if questionAnswered == 10 {
-//            let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "ScoreVC") as! ScoreViewController
-//            secondViewController.score = score
-//            secondViewController.questionAnswered = questionAnswered
-//            secondViewController.questions = questions
-//            self.navigationController?.pushViewController(secondViewController, animated: true)
-//        }
-//    }
 
     private func updateTotalQuestions() {
-//           guard let equipment = self.equipmentTextField.text else {return}
+
         let firestoreService = FirestoreService<Profil>()
-        let data = ["totalQuestions": FieldValue.increment(Int64(1))]
+        let data = ["totalQuestions": FieldValue.increment(Int64(questionAnswered))]
         firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
                    switch result {
                    case .success(let successMessage):
@@ -267,62 +233,74 @@ class GameViewController: UIViewController {
                        self?.presentAlert(with: "Erreur réseau")
                    }
                }
-          
        }
     
-    private func setTimerAndFecth() {
-    
-    gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimerAndFetch), userInfo: nil, repeats: true)
+    private func updateGoodAnswer() {
+        let firestoreService = FirestoreService<Profil>()
+        let data = ["goodAnswers": FieldValue.increment(Int64(score))]
+        firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
+                   switch result {
+                   case .success(let successMessage):
+                       print(successMessage)
+                   case .failure(let error):
+                       print("Error adding document: \(error)")
+                       self?.presentAlert(with: "Erreur réseau")
+                   }
+               }
     }
     
-    @objc func runTimerAndFetch() {
-        
-        counter -= 1
-        timeLabel.text = "\(counter)"
-        
-        if counter == 0 {
-            outOfTime()
-            counter = 5
-        }
-        
+    private func updateWrongAnswer() {
+        let firestoreService = FirestoreService<Profil>()
+        let data = ["wrongAnswers": FieldValue.increment(Int64(wrongAnswers))]
+        firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
+                   switch result {
+                   case .success(let successMessage):
+                       print(successMessage)
+                   case .failure(let error):
+                       print("Error adding document: \(error)")
+                       self?.presentAlert(with: "Erreur réseau")
+                   }
+               }
     }
     
-    private func setTimer() {
-    
-    gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
-    }
-    
-    @objc func runTimer() {
-        setupCountdownLabel()
+//    private func setTimerAndFecth() {
+//
+//    gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimerAndFetch), userInfo: nil, repeats: true)
+//    }
+//
+//    @objc func runTimerAndFetch() {
+//
 //        counter -= 1
 //        timeLabel.text = "\(counter)"
 //
 //        if counter == 0 {
-//            gameTimer?.invalidate()
+//            outOfTime()
 //            counter = 5
+//        }
+//
+//    }
+    
+//    private func setTimer() {
+//
+//    gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+//    }
+    
+//    @objc func runTimer() {
+//        setupCountdownLabel()
+//        if counter != 0 {
+//            timeLabel.text = "\(counter)"
+//            counter -= 1
+//        } else {
+//            gameTimer?.invalidate()
+//            counter = 20
 //            fetchQuestion()
 //        }
-             if counter != 0
-                {
-                    timeLabel.isHidden = false
-                    timeLabel.text = "\(counter)"
-                    counter -= 1
-                }
-                else
-                {
-                    timeLabel.isHidden = true
-                    gameTimer?.invalidate()
-                    counter = 20
-                    fetchQuestion()
-        
-                }
-    }
-    
-    private func stopTimer() {
-        gameTimer?.invalidate()
-        counter = 20
-//        timeLabel.text = "\(counter)"
-    }
+//    }
+//
+//    private func stopTimer() {
+//        gameTimer?.invalidate()
+//        counter = 20
+//    }
     
     private func setupCountdownLabel() {
         timeLabel.textColor = Colors.darkBlue
@@ -353,10 +331,44 @@ class GameViewController: UIViewController {
 //
 //    }
     
-    private func timeOff() {
-        if counter == 0 {
-            fetchQuestion()
+    func gameOver() {
+        if questionAnswered == 10 {
+            updateTotalQuestions()
+            updateGoodAnswer()
+            updateWrongAnswer()
+           let scoreLabel = score*10
+            let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "ScoreAlertVC") as! ScoreAlertViewController
+            switch score {
+            case 0..<3 :
+                print(scorePercentage)
+                secondVC.alertScore = "Score "+"\(scoreLabel)%"
+                secondVC.alertTitle = "Aïe..."
+                secondVC.alertBody = "Ressaisissez-vous!"
+                secondVC.scoreImage = UIImage(named: "angry")
+            case 3..<5:
+                print(scorePercentage)
+                secondVC.alertScore = "Score "+"\(scoreLabel)%"
+                secondVC.alertTitle = "Mouais..."
+                secondVC.alertBody = "Peut mieux faire."
+                secondVC.scoreImage = UIImage(named: "confused")
+            case 5..<7:
+                print(scorePercentage)
+                secondVC.alertScore = "Score "+"\(scoreLabel)%"
+                secondVC.alertTitle = "Pas mal du tout"
+                secondVC.alertBody = "Vous avez fait du bon boulot"
+                secondVC.scoreImage = UIImage(named: "like")
+            case 7...10:
+                print(scorePercentage)
+                secondVC.alertScore = "Score "+"\(scoreLabel)%"
+                secondVC.alertTitle = "Félicitations"
+                secondVC.alertBody = "Vous êtes impressionnant."
+                secondVC.scoreImage = UIImage(named: "trophy")
+            default:
+                print("score shown")
+            }
+            self.navigationController?.pushViewController(secondVC, animated: true)
+          
         }
     }
-    
 }
+

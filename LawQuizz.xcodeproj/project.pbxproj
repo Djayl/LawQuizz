@@ -10,6 +10,8 @@
 		1C82A455C497F5BDFCDED326 /* Pods_LawQuizz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB668BB5CBAEA1FD4A6A132D /* Pods_LawQuizz.framework */; };
 		F0442E6D240F0AE8000F8BFA /* SpartanMB-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0442E6C240F0ABE000F8BFA /* SpartanMB-Bold.otf */; };
 		F0442E6E240F0AEB000F8BFA /* SpartanMB-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F0442E6B240F0ABD000F8BFA /* SpartanMB-Regular.otf */; };
+		F052EC23241101A00050C36A /* ScoreAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052EC22241101A00050C36A /* ScoreAlertViewController.swift */; };
+		F052EC2624113E3C0050C36A /* ViewShadowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052EC2524113E3C0050C36A /* ViewShadowed.swift */; };
 		F053656E240D1401007A5D89 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053656D240D1401007A5D89 /* String.swift */; };
 		F0536570240D1446007A5D89 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053656F240D1446007A5D89 /* AlertService.swift */; };
 		F0536572240D14D6007A5D89 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0536571240D14D6007A5D89 /* AlertViewController.swift */; };
@@ -42,6 +44,8 @@
 		CB668BB5CBAEA1FD4A6A132D /* Pods_LawQuizz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LawQuizz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0442E6B240F0ABD000F8BFA /* SpartanMB-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpartanMB-Regular.otf"; sourceTree = "<group>"; };
 		F0442E6C240F0ABE000F8BFA /* SpartanMB-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpartanMB-Bold.otf"; sourceTree = "<group>"; };
+		F052EC22241101A00050C36A /* ScoreAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreAlertViewController.swift; sourceTree = "<group>"; };
+		F052EC2524113E3C0050C36A /* ViewShadowed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewShadowed.swift; sourceTree = "<group>"; };
 		F053656D240D1401007A5D89 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F053656F240D1446007A5D89 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		F0536571240D14D6007A5D89 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +93,16 @@
 				8DCBF854A4E6386CAD2F48F1 /* Pods-LawQuizz.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F052EC2424113E110050C36A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F0D7B179240BE3B40088F03F /* Main.storyboard */,
+				F0D7B17E240BE3B50088F03F /* LaunchScreen.storyboard */,
+				F052EC2524113E3C0050C36A /* ViewShadowed.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F053656C240D13BB007A5D89 /* Extensions */ = {
@@ -148,9 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				F053656C240D13BB007A5D89 /* Extensions */,
-				F0D7B179240BE3B40088F03F /* Main.storyboard */,
+				F052EC2424113E110050C36A /* View */,
 				F0D7B17C240BE3B50088F03F /* Assets.xcassets */,
-				F0D7B17E240BE3B50088F03F /* LaunchScreen.storyboard */,
 				F0D7B188240BE4270088F03F /* Supporting Files */,
 				F0D7B18D240BE87A0088F03F /* Controller */,
 				F064DED6240E7DD700E4CD4E /* Colors.swift */,
@@ -176,6 +189,7 @@
 			children = (
 				F0D7B18B240BE86F0088F03F /* GameViewController.swift */,
 				F0536571240D14D6007A5D89 /* AlertViewController.swift */,
+				F052EC22241101A00050C36A /* ScoreAlertViewController.swift */,
 				F064DED2240E765B00E4CD4E /* HomeViewController.swift */,
 				F0AE716A240FD845002E5387 /* ProfileViewController.swift */,
 				F058018B240FC1950040BA8B /* Authentication Controllers */,
@@ -313,6 +327,7 @@
 				F0580193240FC25F0040BA8B /* FirestoreService.swift in Sources */,
 				F0AE716B240FD845002E5387 /* ProfileViewController.swift in Sources */,
 				F058018D240FC1E70040BA8B /* DocumentSerializableProtocol.swift in Sources */,
+				F052EC23241101A00050C36A /* ScoreAlertViewController.swift in Sources */,
 				F0580197240FC2B20040BA8B /* Question.swift in Sources */,
 				F064DED7240E7DD700E4CD4E /* Colors.swift in Sources */,
 				F058018F240FC2120040BA8B /* Endpoint.swift in Sources */,
@@ -327,6 +342,7 @@
 				F058019B240FC2F40040BA8B /* FirebaseStorageManager.swift in Sources */,
 				F053D2FF240EFACD0090A1EB /* UIButton.swift in Sources */,
 				F058018A240FC1810040BA8B /* LoginViewController.swift in Sources */,
+				F052EC2624113E3C0050C36A /* ViewShadowed.swift in Sources */,
 				F0580195240FC28A0040BA8B /* UIViewController.swift in Sources */,
 				F0580191240FC2380040BA8B /* AuthenticationService.swift in Sources */,
 			);
