@@ -16,6 +16,7 @@
 		F0536570240D1446007A5D89 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053656F240D1446007A5D89 /* AlertService.swift */; };
 		F0536572240D14D6007A5D89 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0536571240D14D6007A5D89 /* AlertViewController.swift */; };
 		F053D2FF240EFACD0090A1EB /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053D2FE240EFACD0090A1EB /* UIButton.swift */; };
+		F05749AD241263DE008ECD24 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05749AC241263DE008ECD24 /* SummaryViewController.swift */; };
 		F0580188240FC14B0040BA8B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580187240FC14B0040BA8B /* SignUpViewController.swift */; };
 		F058018A240FC1810040BA8B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580189240FC1810040BA8B /* LoginViewController.swift */; };
 		F058018D240FC1E70040BA8B /* DocumentSerializableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058018C240FC1E70040BA8B /* DocumentSerializableProtocol.swift */; };
@@ -50,6 +51,7 @@
 		F053656F240D1446007A5D89 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		F0536571240D14D6007A5D89 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		F053D2FE240EFACD0090A1EB /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		F05749AC241263DE008ECD24 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		F0580187240FC14B0040BA8B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F0580189240FC1810040BA8B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F058018C240FC1E70040BA8B /* DocumentSerializableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSerializableProtocol.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				F052EC22241101A00050C36A /* ScoreAlertViewController.swift */,
 				F064DED2240E765B00E4CD4E /* HomeViewController.swift */,
 				F0AE716A240FD845002E5387 /* ProfileViewController.swift */,
+				F05749AC241263DE008ECD24 /* SummaryViewController.swift */,
 				F058018B240FC1950040BA8B /* Authentication Controllers */,
 			);
 			path = Controller;
@@ -343,6 +346,7 @@
 				F053D2FF240EFACD0090A1EB /* UIButton.swift in Sources */,
 				F058018A240FC1810040BA8B /* LoginViewController.swift in Sources */,
 				F052EC2624113E3C0050C36A /* ViewShadowed.swift in Sources */,
+				F05749AD241263DE008ECD24 /* SummaryViewController.swift in Sources */,
 				F0580195240FC28A0040BA8B /* UIViewController.swift in Sources */,
 				F0580191240FC2380040BA8B /* AuthenticationService.swift in Sources */,
 			);

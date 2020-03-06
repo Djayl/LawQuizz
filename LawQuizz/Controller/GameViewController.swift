@@ -26,7 +26,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var buttonB: UIButton!
     @IBOutlet weak var buttonC: UIButton!
     @IBOutlet weak var buttonD: UIButton!
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var button1Image: UIImageView!
     @IBOutlet weak var button2Image: UIImageView!
     @IBOutlet weak var button3Image: UIImageView!
@@ -45,6 +44,7 @@ class GameViewController: UIViewController {
     var counter = 20
     var scorePercentage = 0
     var wrongAnswers = 0
+    var dictionary = [String:String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,12 +92,12 @@ class GameViewController: UIViewController {
                 questionAnswered += 1
                 wrongAnswers += 1
                 gameTimer?.invalidate()
-                let alertVC = alertService.alert(title: "Mauvaise réponse! 😐", body: "La bonne réponse était \(goodAnswer)", buttonTitle: "Merci pour l'info 👌🏽") { [weak self] in
+//                let alertVC = alertService.alert(title: "Mauvaise réponse! 😐", body: "La bonne réponse était \(goodAnswer)", buttonTitle: "Merci pour l'info 👌🏽") { [weak self] in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self?.fetchQuestion()
+                        self.fetchQuestion()
                     }
-                }
-                present(alertVC, animated: true)
+//                }
+//                present(alertVC, animated: true)
             }
             gameOver()
         }
@@ -105,6 +105,10 @@ class GameViewController: UIViewController {
     private func calculateScore() {
         let percentage = (score/questionAnswered) * 100
         scorePercentage = percentage
+    }
+    
+    private func passDataToScoreVC() {
+        
     }
 
     
@@ -179,7 +183,7 @@ class GameViewController: UIViewController {
                 self?.questions.append(question)
                 self?.displayQuestion(question)
                 self?.startTimer()
-
+                self?.dictionary.updateValue(question.question, forKey: question.goodAnswer)
                 self?.setTitlesForButton(question)
                 self?.hideImage()
                 for button in answersButton {
@@ -220,10 +224,11 @@ class GameViewController: UIViewController {
     }
     
 
-    private func updateTotalQuestions() {
-
+    private func updateScoreInFirestore() {
         let firestoreService = FirestoreService<Profil>()
-        let data = ["totalQuestions": FieldValue.increment(Int64(questionAnswered))]
+        let data = ["totalQuestions": FieldValue.increment(Int64(questionAnswered)),
+                    "goodAnswers": FieldValue.increment(Int64(score)),
+                    "wrongAnswers": FieldValue.increment(Int64(wrongAnswers))]
         firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
                    switch result {
                    case .success(let successMessage):
@@ -235,33 +240,33 @@ class GameViewController: UIViewController {
                }
        }
     
-    private func updateGoodAnswer() {
-        let firestoreService = FirestoreService<Profil>()
-        let data = ["goodAnswers": FieldValue.increment(Int64(score))]
-        firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
-                   switch result {
-                   case .success(let successMessage):
-                       print(successMessage)
-                   case .failure(let error):
-                       print("Error adding document: \(error)")
-                       self?.presentAlert(with: "Erreur réseau")
-                   }
-               }
-    }
-    
-    private func updateWrongAnswer() {
-        let firestoreService = FirestoreService<Profil>()
-        let data = ["wrongAnswers": FieldValue.increment(Int64(wrongAnswers))]
-        firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
-                   switch result {
-                   case .success(let successMessage):
-                       print(successMessage)
-                   case .failure(let error):
-                       print("Error adding document: \(error)")
-                       self?.presentAlert(with: "Erreur réseau")
-                   }
-               }
-    }
+//    private func updateGoodAnswer() {
+//        let firestoreService = FirestoreService<Profil>()
+//        let data = ["goodAnswers": FieldValue.increment(Int64(score))]
+//        firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
+//                   switch result {
+//                   case .success(let successMessage):
+//                       print(successMessage)
+//                   case .failure(let error):
+//                       print("Error adding document: \(error)")
+//                       self?.presentAlert(with: "Erreur réseau")
+//                   }
+//               }
+//    }
+//
+//    private func updateWrongAnswer() {
+//        let firestoreService = FirestoreService<Profil>()
+//        let data = ["wrongAnswers": FieldValue.increment(Int64(wrongAnswers))]
+//        firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
+//                   switch result {
+//                   case .success(let successMessage):
+//                       print(successMessage)
+//                   case .failure(let error):
+//                       print("Error adding document: \(error)")
+//                       self?.presentAlert(with: "Erreur réseau")
+//                   }
+//               }
+//    }
     
 //    private func setTimerAndFecth() {
 //
@@ -302,14 +307,14 @@ class GameViewController: UIViewController {
 //        counter = 20
 //    }
     
-    private func setupCountdownLabel() {
-        timeLabel.textColor = Colors.darkBlue
-                   if counter <= 5 {
-                    timeLabel.textColor = UIColor.systemRed
-                  } else if counter <= 10 {
-                    timeLabel.textColor = UIColor.systemOrange
-                  }
-    }
+//    private func setupCountdownLabel() {
+//        timeLabel.textColor = Colors.darkBlue
+//                   if counter <= 5 {
+//                    timeLabel.textColor = UIColor.systemRed
+//                  } else if counter <= 10 {
+//                    timeLabel.textColor = UIColor.systemOrange
+//                  }
+//    }
 
 
 //    @objc func changeTitle() {
@@ -333,11 +338,14 @@ class GameViewController: UIViewController {
     
     func gameOver() {
         if questionAnswered == 10 {
-            updateTotalQuestions()
-            updateGoodAnswer()
-            updateWrongAnswer()
+            print(dictionary)
+            updateScoreInFirestore()
+//            updateGoodAnswer()
+//            updateWrongAnswer()
            let scoreLabel = score*10
-            let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "ScoreAlertVC") as! ScoreAlertViewController
+            let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "ScoreAlertVC") as!
+            ScoreAlertViewController
+            secondVC.questions = questions
             switch score {
             case 0..<3 :
                 print(scorePercentage)

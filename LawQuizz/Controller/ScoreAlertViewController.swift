@@ -22,6 +22,7 @@ class ScoreAlertViewController: UIViewController {
     var alertTitle = ""
     var alertScore = ""
     var alertBody = ""
+    var questions = [Question]()
 //    var buttonAction: (() -> Void)?
     
     override func viewDidLoad() {
@@ -36,11 +37,9 @@ class ScoreAlertViewController: UIViewController {
     }
     
     @IBAction func didTapClose(_ sender: Any) {
-        print("button tapped")
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
-        self.navigationController?.pushViewController(secondViewController, animated: true)
-//        dismiss(animated: true)
-//        buttonAction?()
+        let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "SummaryVC") as! SummaryViewController
+        secondVC.questions = questions
+        self.navigationController?.pushViewController(secondVC, animated: true)
     }
     
     func setupView() {
