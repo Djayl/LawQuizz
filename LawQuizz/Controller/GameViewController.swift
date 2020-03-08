@@ -46,6 +46,8 @@ class GameViewController: UIViewController {
     var scorePercentage = 0
     var wrongAnswers = 0
     var playerAnswers = [String]()
+    var userGoodAnswers = 0
+    var userTotalQuestions = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +61,7 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-
+        
     }
     
     @IBAction func didTapDismiss(_ sender: Any) {
@@ -246,6 +248,42 @@ class GameViewController: UIViewController {
                }
        }
     
+//    private func getRank(_ profil: Profil) {
+//        userGoodAnswers = profil.goodAnswers
+//        userTotalQuestions = profil.totalQuestions
+//    }
+//
+//    private func listenProfilInformation() {
+//        let firestoreService = FirestoreService<Profil>()
+//        firestoreService.listenDocument(endpoint: .currentUser) { [weak self] result in
+//            switch result {
+//            case .success(let profil):
+//                self?.getRank(profil)
+//                print(self?.userGoodAnswers as Any)
+//                print(self?.userTotalQuestions as Any)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//                self?.presentAlert(with: "Erreur réseau")
+//            }
+//        }
+//    }
+//
+//    private func updateRankInFirestore() {
+//        let firestoreService = FirestoreService<Profil>()
+//        let average = Double(userGoodAnswers / userTotalQuestions)
+//        let averageTruncated = average.truncateDigitsAfterDecimal(number: average, afterDecimalDigits: 4)
+//        let data = ["rank": averageTruncated]
+//        firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
+//            switch result {
+//            case .success(let successMessage):
+//                print(successMessage)
+//            case .failure(let error):
+//                print("Error adding document: \(error)")
+//                self?.presentAlert(with: "Erreur réseau")
+//            }
+//        }
+//    }
+    
 //    private func updateGoodAnswer() {
 //        let firestoreService = FirestoreService<Profil>()
 //        let data = ["goodAnswers": FieldValue.increment(Int64(score))]
@@ -345,6 +383,7 @@ class GameViewController: UIViewController {
     func gameOver() {
         if questionAnswered == 10 {
             updateScoreInFirestore()
+            
 //            updateGoodAnswer()
 //            updateWrongAnswer()
            let scoreLabel = score*10

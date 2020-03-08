@@ -13,18 +13,19 @@ class RankingViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-
+    
     
     var users = [Profil]()
     var allusers = [String]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = UIColor.white
-        print(allusers)
-        listenUsersCollection()
+        setUpTableView()
+        fecthUsersCollection()
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor.white,
+             NSAttributedString.Key.font: UIFont(name: "SpartanMB-Bold", size: 21)!]
+        self.navigationItem.title = "Classement général"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,48 +34,63 @@ class RankingViewController: UIViewController {
         tableView.register(UINib(nibName: "RankingCell", bundle: nil),forCellReuseIdentifier: "RankingCell")
     }
     
-    private func getUserData(_ profil: Profil) {
-        
-        for item in allusers {
-            if item == profil.identifier {
-                let id = item
-                let email = profil.email
-                let userName = profil.userName
-                let imageURL = profil.imageURL
-                let school = profil.school
-                let totalQuestions = profil.totalQuestions
-                let goodAnswers = profil.goodAnswers
-                let wrongAnswers = profil.wrongAnswers
-                
-                let user = Profil(identifier: id, email: email, userName: userName, imageURL: imageURL, school: school, totalQuestions: totalQuestions, goodAnswers: goodAnswers, wrongAnswers: wrongAnswers)
-                
-                users.append(user)
-                tableView.reloadData()
-                print(user.userName)
-            }
-        }
+    fileprivate func setUpTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.layoutMargins = UIEdgeInsets.zero
+        tableView.separatorInset = UIEdgeInsets.zero
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = UIColor.white
     }
     
-    private func listenUsersCollection() {
-           let firestoreService = FirestoreService<Profil>()
-           
-           firestoreService.fetchCollection(endpoint: .user) { [weak self] result in
-               switch result {
-               case .success(let users):
+    //    override func viewWillDisappear(_ animated: Bool) {
+    //        super.viewWillDisappear(animated)
+    //        users.removeAll()
+    //    }
+    
+    //    private func getUserData(_ profil: Profil) {
+    //
+    //        for item in allusers {
+    ////            if item == profil.identifier {
+    //                let id = item
+    //                let email = profil.email
+    //                let userName = profil.userName
+    //                let imageURL = profil.imageURL
+    //                let school = profil.school
+    //                let totalQuestions = profil.totalQuestions
+    //                let goodAnswers = profil.goodAnswers
+    //                let wrongAnswers = profil.wrongAnswers
+    //
+    //                let user = Profil(identifier: id, email: email, userName: userName, imageURL: imageURL, school: school, totalQuestions: totalQuestions, goodAnswers: goodAnswers, wrongAnswers: wrongAnswers)
+    //
+    //                users.append(user)
+    //                print(user.userName)
+    //            }
+    //        tableView.reloadData()
+    //
+    ////        }
+    //    }
+    
+    private func fecthUsersCollection() {
+        let firestoreService = FirestoreService<Profil>()
+        
+        firestoreService.fetchCollection(endpoint: .user) { [weak self] result in
+            switch result {
+            case .success(let users):
                 self?.users.removeAll()
-                for user in users {
-                    self?.getUserData(user)
+                self?.users = users.sorted {
+                    $0.rank > $1.rank
                 }
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
-               case .failure(let error):
-                   print(error.localizedDescription)
-                   self?.presentAlert(with: "Erreur réseau")
-               }
-           }
-       }
-
+            case .failure(let error):
+                print(error.localizedDescription)
+                self?.presentAlert(with: "Erreur réseau")
+            }
+        }
+    }
+    
 }
 
 @available(iOS 13.0, *)
@@ -92,9 +108,14 @@ extension RankingViewController: UITableViewDataSource, UITableViewDelegate {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RankingCell") as? RankingCell {
             cell.configureCell(user: users[indexPath.row])
             cell.clipsToBounds = true
-           
+            cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height / 2
+            if ((indexPath.row) + 1) == 1 {
+                cell.userRankLabel.text = "\((indexPath.row) + 1)er"
+            } else {
+                cell.userRankLabel.text = "\((indexPath.row) + 1)ème"
+            }
             cell.layoutMargins = UIEdgeInsets.zero
-
+            
             return cell
         }
         return UITableViewCell()

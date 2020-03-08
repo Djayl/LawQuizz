@@ -17,9 +17,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var schoolLabel: UILabel!
     @IBOutlet weak var goodAnswersLabel: UILabel!
-    @IBOutlet weak var wrongAnswersLabel: UILabel!
     @IBOutlet weak var userRank: UILabel!
     @IBOutlet weak var schoolUserRank: UILabel!
+    @IBOutlet weak var goToGeneralRankButton: UIButton!
+    @IBOutlet weak var goToSchoolRankButton: UIButton!
     
     var allUsers = [String:Double]()
     var schoolUsers = [String:Double]()
@@ -45,12 +46,16 @@ class ProfileViewController: UIViewController {
         listenUsersCollection()
     }
     @IBAction func didTapButton(_ sender: Any) {
+        
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "RankingVC") as! RankingViewController
         secondViewController.allusers = users
             self.navigationController?.pushViewController(secondViewController, animated: true)
     }
+    
     private func setupImageView() {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+        goToSchoolRankButton.layer.cornerRadius = 10
+        goToGeneralRankButton.layer.cornerRadius = 10
     }
     private func updateScreenWithProfil(_ profil: Profil) {
         usernameLabel.text = "\(profil.userName.capitalized)"
@@ -61,23 +66,18 @@ class ProfileViewController: UIViewController {
     
     private func calculateGoodAnswers(_ profil: Profil) {
         let goodAnswers = Double(profil.goodAnswers)
-        let wrongAnswers = Double(profil.wrongAnswers)
         let totalAnswers = Double(profil.totalQuestions)
-
         let percentage1 = Double((goodAnswers / totalAnswers )*100)
-        let percentage2 = Double((wrongAnswers / totalAnswers )*100)
-        
         let percentage1Rounded = String(format: "%.1f", percentage1)
-        let percentage2Rounded = String(format: "%.1f", percentage2)
         
+        goodAnswersLabel.textColor = Colors.clearBlue
         goodAnswersLabel.text = "Pourcentage de bonnes réponses: "+"\(percentage1Rounded)%"
-        wrongAnswersLabel.text = "Pourcentage de mauvaises réponses: "+"\(percentage2Rounded)%"
+        
     }
     
     private func setRankingIfNoData(_ profil: Profil) {
         if profil.totalQuestions == 0 {
             goodAnswersLabel.text = "Aucune donnée à afficher"
-            wrongAnswersLabel.text = "Aucune donnée à afficher"
             userRank.text = "Aucune donnée à afficher"
             schoolUserRank.text = "Aucune donnée à afficher"
         }
@@ -226,7 +226,8 @@ class ProfileViewController: UIViewController {
     
     private func setDeleteButton() {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "logout"), for: .normal)
+        button.setTitle("Déconnexion", for: .normal)
+        button.setTitleColor(Colors.clearBlue, for: .normal)
         button.sizeToFit()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         button.addTarget(self, action: #selector(logOut), for: .touchUpInside)

@@ -39,7 +39,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         pickerView.setValue(Colors.clearBlue, forKeyPath: "textColor")
         self.navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor: UIColor.black,
+            [NSAttributedString.Key.foregroundColor: UIColor.white,
              NSAttributedString.Key.font: UIFont(name: "SpartanMB-Bold", size: 21)!]
         self.navigationItem.title = "Inscription"
         setupTextFieldsLayer()
@@ -138,7 +138,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 ProgressHUD.show()
                    guard let currentUser = AuthService.getCurrentUser() else { return }
                    self.getImage { (imageURL) in
-                    let profil = Profil(identifier: currentUser.uid, email: email, userName: userName, imageURL: imageURL, school: self.school, totalQuestions: 0, goodAnswers: 0, wrongAnswers: 0)
+                    let profil = Profil(identifier: currentUser.uid, email: email, userName: userName, imageURL: imageURL, school: self.school, totalQuestions: 0, goodAnswers: 0, wrongAnswers: 0, rank: 0)
                        self.saveUserData(profil)
                        self.dismiss(animated: true, completion: nil)
                    }

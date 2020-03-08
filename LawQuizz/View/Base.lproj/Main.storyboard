@@ -453,8 +453,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdc-4C-JQI" userLabel="TopView">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quizz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiX-de-BHX">
-                                                        <rect key="frame" x="124.5" y="75" width="71" height="35"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nemo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiX-de-BHX">
+                                                        <rect key="frame" x="123" y="75" width="74" height="35"/>
                                                         <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="24"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -614,7 +614,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SU6-MJ-EZO">
-                                <rect key="frame" x="16" y="180" width="288" height="78"/>
+                                <rect key="frame" x="16" y="180" width="288" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ew7-kL-Foc">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="29"/>
@@ -622,68 +622,75 @@
                                         <color key="textColor" red="0.55858314040000001" green="0.80242520569999998" blue="0.27042704820000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z44-e3-Unu">
-                                        <rect key="frame" x="0.0" y="49" width="288" height="29"/>
-                                        <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="20"/>
-                                        <color key="textColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classement général:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wI-6B-KD6">
-                                <rect key="frame" x="16" y="278" width="288" height="29"/>
-                                <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="20"/>
+                                <rect key="frame" x="16" y="229" width="288" height="26.5"/>
+                                <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="18"/>
                                 <color key="textColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classement école:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPP-3s-5j0">
-                                <rect key="frame" x="16" y="323" width="288" height="29"/>
-                                <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="20"/>
+                                <rect key="frame" x="16" y="315.5" width="288" height="26.5"/>
+                                <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="18"/>
                                 <color key="textColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVr-WI-Nqr">
-                                <rect key="frame" x="129" y="483" width="54" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="263.5" width="288" height="36"/>
+                                <color key="backgroundColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="16"/>
+                                <state key="normal" title="Voir le classement général">
+                                    <color key="titleColor" red="0.19060003759999999" green="0.24882894750000001" blue="0.33726659419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapButton:" destination="Sg9-pL-7Dt" eventType="touchUpInside" id="tRz-J4-crb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-CS-OGj">
+                                <rect key="frame" x="16" y="350" width="288" height="36"/>
+                                <color key="backgroundColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="16"/>
+                                <state key="normal" title="Voir le classement dans votre école">
+                                    <color key="titleColor" red="0.19060003759999999" green="0.24882894750000001" blue="0.33726659419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="FXn-kQ-6gE" firstAttribute="leading" secondItem="VCS-4T-cI9" secondAttribute="trailing" constant="16" id="C2W-5V-J6V"/>
+                            <constraint firstItem="W1Y-CS-OGj" firstAttribute="top" secondItem="oPP-3s-5j0" secondAttribute="bottom" constant="8" id="CzP-4m-n4M"/>
                             <constraint firstItem="oPP-3s-5j0" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="E7f-cc-vPe"/>
                             <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="FXn-kQ-6gE" secondAttribute="trailing" constant="16" id="Jrb-mn-Acy"/>
                             <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="1wI-6B-KD6" secondAttribute="trailing" constant="16" id="NoU-kp-ng2"/>
                             <constraint firstItem="VCS-4T-cI9" firstAttribute="top" secondItem="abW-0i-fXh" secondAttribute="top" constant="40" id="QTa-co-7pN"/>
+                            <constraint firstItem="AVr-WI-Nqr" firstAttribute="top" secondItem="1wI-6B-KD6" secondAttribute="bottom" constant="8" id="QiO-zK-s54"/>
+                            <constraint firstItem="W1Y-CS-OGj" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="YJ2-f4-dtV"/>
                             <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="SU6-MJ-EZO" secondAttribute="trailing" constant="16" id="a0S-av-vpr"/>
-                            <constraint firstItem="oPP-3s-5j0" firstAttribute="top" secondItem="1wI-6B-KD6" secondAttribute="bottom" constant="16" id="e1R-De-shL"/>
                             <constraint firstItem="1wI-6B-KD6" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="ezM-xu-C9y"/>
                             <constraint firstItem="SU6-MJ-EZO" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="fKV-Rf-o6l"/>
                             <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="oPP-3s-5j0" secondAttribute="trailing" constant="16" id="hnF-xx-TAI"/>
+                            <constraint firstItem="AVr-WI-Nqr" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="luj-p9-cPE"/>
+                            <constraint firstItem="oPP-3s-5j0" firstAttribute="top" secondItem="AVr-WI-Nqr" secondAttribute="bottom" constant="16" id="mXK-75-e2A"/>
                             <constraint firstItem="VCS-4T-cI9" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="oUy-X6-wvG"/>
                             <constraint firstItem="1wI-6B-KD6" firstAttribute="top" secondItem="SU6-MJ-EZO" secondAttribute="bottom" constant="20" id="pAO-Nl-pwA"/>
                             <constraint firstItem="SU6-MJ-EZO" firstAttribute="top" secondItem="VCS-4T-cI9" secondAttribute="bottom" constant="40" id="qAS-RJ-JL1"/>
-                            <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="AVr-WI-Nqr" secondAttribute="trailing" constant="137" id="qvG-eO-izY"/>
-                            <constraint firstItem="AVr-WI-Nqr" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="129" id="stp-1S-Mru"/>
+                            <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="W1Y-CS-OGj" secondAttribute="trailing" constant="16" id="tE7-it-g41"/>
                             <constraint firstItem="FXn-kQ-6gE" firstAttribute="top" secondItem="VCS-4T-cI9" secondAttribute="top" id="tcN-tU-1Kd"/>
-                            <constraint firstItem="abW-0i-fXh" firstAttribute="bottom" secondItem="AVr-WI-Nqr" secondAttribute="bottom" constant="51" id="uw8-cA-BgS"/>
+                            <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="AVr-WI-Nqr" secondAttribute="trailing" constant="16" id="tje-od-cJx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="abW-0i-fXh"/>
                     </view>
                     <navigationItem key="navigationItem" id="0qX-gj-mG7"/>
                     <connections>
+                        <outlet property="goToGeneralRankButton" destination="AVr-WI-Nqr" id="9I0-IH-5yH"/>
+                        <outlet property="goToSchoolRankButton" destination="W1Y-CS-OGj" id="mPu-TF-pnO"/>
                         <outlet property="goodAnswersLabel" destination="Ew7-kL-Foc" id="0cz-94-o7B"/>
                         <outlet property="profileImageView" destination="VCS-4T-cI9" id="ZCi-Vr-wDR"/>
                         <outlet property="schoolLabel" destination="hqA-s2-FPf" id="AKD-cf-JKB"/>
                         <outlet property="schoolUserRank" destination="oPP-3s-5j0" id="lJb-sS-L2d"/>
                         <outlet property="userRank" destination="1wI-6B-KD6" id="2Eg-87-dgo"/>
                         <outlet property="usernameLabel" destination="cia-Tq-la1" id="Byg-RV-4BN"/>
-                        <outlet property="wrongAnswersLabel" destination="z44-e3-Unu" id="CE9-f0-4vS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvs-64-EOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

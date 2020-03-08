@@ -26,7 +26,7 @@ class RankingCell: UITableViewCell {
         usernameLabel.text = user.userName.capitalized
         schoolUserLabel.text = user.school
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
-        profileImageView.layer.cornerRadius = 5
+        
         
         getImage(user)
     }
