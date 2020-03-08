@@ -23,11 +23,13 @@ class ScoreAlertViewController: UIViewController {
     var alertScore = ""
     var alertBody = ""
     var questions = [Question]()
+    var playerAnswers = [String]()
 //    var buttonAction: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +41,7 @@ class ScoreAlertViewController: UIViewController {
     @IBAction func didTapClose(_ sender: Any) {
         let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "SummaryVC") as! SummaryViewController
         secondVC.questions = questions
+        secondVC.playerAnswers = playerAnswers
         self.navigationController?.pushViewController(secondVC, animated: true)
     }
     

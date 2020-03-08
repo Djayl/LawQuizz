@@ -31,6 +31,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var button3Image: UIImageView!
     @IBOutlet weak var button4Image: UIImageView!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     
     var thema = ""
@@ -44,7 +45,7 @@ class GameViewController: UIViewController {
     var counter = 20
     var scorePercentage = 0
     var wrongAnswers = 0
-    var dictionary = [String:String]()
+    var playerAnswers = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ class GameViewController: UIViewController {
         setupSubViews()
         themaLabel.text = thema
         fetchQuestion()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,28 +81,28 @@ class GameViewController: UIViewController {
         }
     }
     
-      @IBAction func checkAnswer(_ sender: UIButton) {
-       
-            if sender.titleLabel?.text == goodAnswer {
-                score += 1
-                questionAnswered += 1
-                gameTimer?.invalidate()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.fetchQuestion()
-                }
-            } else {
-                questionAnswered += 1
-                wrongAnswers += 1
-                gameTimer?.invalidate()
-//                let alertVC = alertService.alert(title: "Mauvaise réponse! 😐", body: "La bonne réponse était \(goodAnswer)", buttonTitle: "Merci pour l'info 👌🏽") { [weak self] in
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.fetchQuestion()
-                    }
-//                }
-//                present(alertVC, animated: true)
+    @IBAction func checkAnswer(_ sender: UIButton) {
+        
+        if sender.titleLabel?.text == goodAnswer {
+            score += 1
+            questionAnswered += 1
+            gameTimer?.invalidate()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.fetchQuestion()
             }
-            gameOver()
+        } else {
+            questionAnswered += 1
+            wrongAnswers += 1
+            gameTimer?.invalidate()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.fetchQuestion()
+            }
         }
+        scoreLabel.text = "Score: \(score)/\(questionAnswered)"
+        guard let playerAnswer = sender.titleLabel?.text else {return}
+        playerAnswers.append(playerAnswer)
+        gameOver()
+    }
     
     private func calculateScore() {
         let percentage = (score/questionAnswered) * 100
@@ -161,8 +163,13 @@ class GameViewController: UIViewController {
       }
       
       private func outOfTime() {
-        gameTimer?.invalidate()
-          fetchQuestion()
+        UIView.animate(withDuration: 0.3) { () -> Void in
+            self.progressView.alpha = 0.0
+            self.gameTimer?.invalidate()
+            self.fetchQuestion()
+        }
+//        gameTimer?.invalidate()
+//          fetchQuestion()
       }
     
     private func fetchQuestion() {
@@ -183,7 +190,6 @@ class GameViewController: UIViewController {
                 self?.questions.append(question)
                 self?.displayQuestion(question)
                 self?.startTimer()
-                self?.dictionary.updateValue(question.question, forKey: question.goodAnswer)
                 self?.setTitlesForButton(question)
                 self?.hideImage()
                 for button in answersButton {
@@ -338,7 +344,6 @@ class GameViewController: UIViewController {
     
     func gameOver() {
         if questionAnswered == 10 {
-            print(dictionary)
             updateScoreInFirestore()
 //            updateGoodAnswer()
 //            updateWrongAnswer()
@@ -346,6 +351,7 @@ class GameViewController: UIViewController {
             let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "ScoreAlertVC") as!
             ScoreAlertViewController
             secondVC.questions = questions
+            secondVC.playerAnswers = playerAnswers
             switch score {
             case 0..<3 :
                 print(scorePercentage)
@@ -374,8 +380,10 @@ class GameViewController: UIViewController {
             default:
                 print("score shown")
             }
-            self.navigationController?.pushViewController(secondVC, animated: true)
-          
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                self.navigationController?.pushViewController(secondVC, animated: true)
+            }
+
         }
     }
 }

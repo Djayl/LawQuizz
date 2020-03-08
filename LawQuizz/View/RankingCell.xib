@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpartanMB-Bold.otf">
+            <string>SpartanMB-Bold</string>
+        </array>
+        <array key="SpartanMB-Regular.otf">
+            <string>SpartanMB-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RankingCell" rowHeight="100" id="KGk-i7-Jjw" customClass="RankingCell" customModule="LawQuizz" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RT3-8z-KqC">
+                        <rect key="frame" x="5" y="5" width="310" height="90"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9LF-W5-Xy6">
+                                <rect key="frame" x="8" y="10" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Suh-Bv-KLw"/>
+                                    <constraint firstAttribute="width" constant="70" id="dwc-sB-3BR"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="iap-c7-8w2">
+                                <rect key="frame" x="86" y="7.5" width="48.5" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEu-39-OC3">
+                                        <rect key="frame" x="0.0" y="0.0" width="48.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApD-mI-9Oc">
+                                        <rect key="frame" x="0.0" y="50" width="48.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUa-7e-sG1">
+                                <rect key="frame" x="253.5" y="32.5" width="48.5" height="25"/>
+                                <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9LF-W5-Xy6" firstAttribute="leading" secondItem="RT3-8z-KqC" secondAttribute="leading" constant="8" id="4m2-vb-jbf"/>
+                            <constraint firstItem="BUa-7e-sG1" firstAttribute="centerY" secondItem="RT3-8z-KqC" secondAttribute="centerY" id="I2y-UF-6NI"/>
+                            <constraint firstItem="iap-c7-8w2" firstAttribute="leading" secondItem="9LF-W5-Xy6" secondAttribute="trailing" constant="8" id="P5b-gb-IZD"/>
+                            <constraint firstItem="9LF-W5-Xy6" firstAttribute="centerY" secondItem="RT3-8z-KqC" secondAttribute="centerY" id="a2K-bb-VLT"/>
+                            <constraint firstAttribute="trailing" secondItem="BUa-7e-sG1" secondAttribute="trailing" constant="8" id="gFB-mf-CYZ"/>
+                            <constraint firstItem="iap-c7-8w2" firstAttribute="centerY" secondItem="9LF-W5-Xy6" secondAttribute="centerY" id="wfi-db-I8Y"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="RT3-8z-KqC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="4cY-yt-LDb"/>
+                    <constraint firstAttribute="trailing" secondItem="RT3-8z-KqC" secondAttribute="trailing" constant="5" id="4wN-Ea-gmG"/>
+                    <constraint firstItem="RT3-8z-KqC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="TU1-rc-rbI"/>
+                    <constraint firstAttribute="bottom" secondItem="RT3-8z-KqC" secondAttribute="bottom" constant="5" id="j6A-Sf-iMt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="profileImageView" destination="9LF-W5-Xy6" id="6Dx-sd-g4C"/>
+                <outlet property="schoolUserLabel" destination="ApD-mI-9Oc" id="umh-Sm-QGi"/>
+                <outlet property="userRankLabel" destination="BUa-7e-sG1" id="5tm-8u-H1H"/>
+                <outlet property="usernameLabel" destination="UEu-39-OC3" id="tlT-PW-txk"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="127.90178571428571"/>
+        </tableViewCell>
+    </objects>
+</document>

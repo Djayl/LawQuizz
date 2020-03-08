@@ -15,8 +15,12 @@
 		F053656E240D1401007A5D89 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053656D240D1401007A5D89 /* String.swift */; };
 		F0536570240D1446007A5D89 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053656F240D1446007A5D89 /* AlertService.swift */; };
 		F0536572240D14D6007A5D89 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0536571240D14D6007A5D89 /* AlertViewController.swift */; };
+		F0536DB5241545C1006070C9 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0536DB4241545C1006070C9 /* RankingViewController.swift */; };
+		F0536DB8241546A2006070C9 /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0536DB6241546A2006070C9 /* RankingCell.swift */; };
+		F0536DB9241546A2006070C9 /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0536DB7241546A2006070C9 /* RankingCell.xib */; };
 		F053D2FF240EFACD0090A1EB /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053D2FE240EFACD0090A1EB /* UIButton.swift */; };
 		F05749AD241263DE008ECD24 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05749AC241263DE008ECD24 /* SummaryViewController.swift */; };
+		F057BC3B2412A2760027B348 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057BC3A2412A2760027B348 /* Double.swift */; };
 		F0580188240FC14B0040BA8B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580187240FC14B0040BA8B /* SignUpViewController.swift */; };
 		F058018A240FC1810040BA8B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580189240FC1810040BA8B /* LoginViewController.swift */; };
 		F058018D240FC1E70040BA8B /* DocumentSerializableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058018C240FC1E70040BA8B /* DocumentSerializableProtocol.swift */; };
@@ -27,6 +31,7 @@
 		F0580197240FC2B20040BA8B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580196240FC2B20040BA8B /* Question.swift */; };
 		F0580199240FC2D50040BA8B /* Profil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580198240FC2D50040BA8B /* Profil.swift */; };
 		F058019B240FC2F40040BA8B /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */; };
+		F05BF8FB24150CEC00042936 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BF8FA24150CEC00042936 /* Dictionary.swift */; };
 		F064DED3240E765B00E4CD4E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED2240E765B00E4CD4E /* HomeViewController.swift */; };
 		F064DED5240E7AB800E4CD4E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED4240E7AB800E4CD4E /* UIView.swift */; };
 		F064DED7240E7DD700E4CD4E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED6240E7DD700E4CD4E /* Colors.swift */; };
@@ -50,8 +55,12 @@
 		F053656D240D1401007A5D89 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F053656F240D1446007A5D89 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		F0536571240D14D6007A5D89 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		F0536DB4241545C1006070C9 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		F0536DB6241546A2006070C9 /* RankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
+		F0536DB7241546A2006070C9 /* RankingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
 		F053D2FE240EFACD0090A1EB /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		F05749AC241263DE008ECD24 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		F057BC3A2412A2760027B348 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		F0580187240FC14B0040BA8B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F0580189240FC1810040BA8B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F058018C240FC1E70040BA8B /* DocumentSerializableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentSerializableProtocol.swift; sourceTree = "<group>"; };
@@ -62,6 +71,7 @@
 		F0580196240FC2B20040BA8B /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F0580198240FC2D50040BA8B /* Profil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profil.swift; sourceTree = "<group>"; };
 		F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
+		F05BF8FA24150CEC00042936 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		F064DED2240E765B00E4CD4E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F064DED4240E7AB800E4CD4E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		F064DED6240E7DD700E4CD4E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -103,6 +113,8 @@
 				F0D7B179240BE3B40088F03F /* Main.storyboard */,
 				F0D7B17E240BE3B50088F03F /* LaunchScreen.storyboard */,
 				F052EC2524113E3C0050C36A /* ViewShadowed.swift */,
+				F0536DB6241546A2006070C9 /* RankingCell.swift */,
+				F0536DB7241546A2006070C9 /* RankingCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,6 +127,8 @@
 				F064DED4240E7AB800E4CD4E /* UIView.swift */,
 				F053D2FE240EFACD0090A1EB /* UIButton.swift */,
 				F0580194240FC28A0040BA8B /* UIViewController.swift */,
+				F057BC3A2412A2760027B348 /* Double.swift */,
+				F05BF8FA24150CEC00042936 /* Dictionary.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +209,7 @@
 				F064DED2240E765B00E4CD4E /* HomeViewController.swift */,
 				F0AE716A240FD845002E5387 /* ProfileViewController.swift */,
 				F05749AC241263DE008ECD24 /* SummaryViewController.swift */,
+				F0536DB4241545C1006070C9 /* RankingViewController.swift */,
 				F058018B240FC1950040BA8B /* Authentication Controllers */,
 			);
 			path = Controller;
@@ -269,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0442E6D240F0AE8000F8BFA /* SpartanMB-Bold.otf in Resources */,
+				F0536DB9241546A2006070C9 /* RankingCell.xib in Resources */,
 				F0D7B180240BE3B50088F03F /* LaunchScreen.storyboard in Resources */,
 				F0D7B18A240BE4830088F03F /* GoogleService-Info.plist in Resources */,
 				F0442E6E240F0AEB000F8BFA /* SpartanMB-Regular.otf in Resources */,
@@ -336,16 +352,20 @@
 				F058018F240FC2120040BA8B /* Endpoint.swift in Sources */,
 				F0D7B18C240BE86F0088F03F /* GameViewController.swift in Sources */,
 				F0580199240FC2D50040BA8B /* Profil.swift in Sources */,
+				F057BC3B2412A2760027B348 /* Double.swift in Sources */,
 				F0536570240D1446007A5D89 /* AlertService.swift in Sources */,
 				F0580188240FC14B0040BA8B /* SignUpViewController.swift in Sources */,
 				F064DED5240E7AB800E4CD4E /* UIView.swift in Sources */,
 				F0536572240D14D6007A5D89 /* AlertViewController.swift in Sources */,
+				F0536DB5241545C1006070C9 /* RankingViewController.swift in Sources */,
 				F0D7B174240BE3B40088F03F /* AppDelegate.swift in Sources */,
+				F0536DB8241546A2006070C9 /* RankingCell.swift in Sources */,
 				F064DED3240E765B00E4CD4E /* HomeViewController.swift in Sources */,
 				F058019B240FC2F40040BA8B /* FirebaseStorageManager.swift in Sources */,
 				F053D2FF240EFACD0090A1EB /* UIButton.swift in Sources */,
 				F058018A240FC1810040BA8B /* LoginViewController.swift in Sources */,
 				F052EC2624113E3C0050C36A /* ViewShadowed.swift in Sources */,
+				F05BF8FB24150CEC00042936 /* Dictionary.swift in Sources */,
 				F05749AD241263DE008ECD24 /* SummaryViewController.swift in Sources */,
 				F0580195240FC28A0040BA8B /* UIViewController.swift in Sources */,
 				F0580191240FC2380040BA8B /* AuthenticationService.swift in Sources */,

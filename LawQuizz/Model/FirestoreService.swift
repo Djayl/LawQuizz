@@ -51,7 +51,7 @@ final public class FirestoreService<FirestoreObject: DocumentSerializableProtoco
     /// - Parameter result: A result type to make action when it's success or failure
     public func fetchCollection(endpoint: Endpoint, result: @escaping (FirestoreCollectionResult<FirestoreObject>) -> Void) {
         collection = dataBase.collection(endpoint.path)
-        collection?.order(by: "creationDate", descending: true).getDocuments(completion: { (querySnapshot, error) in
+        collection?.getDocuments(completion: { (querySnapshot, error) in
             if error != nil {
                 result(.failure(.offline))
             }

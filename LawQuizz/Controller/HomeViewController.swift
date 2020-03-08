@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
+        
 //        setupProfileImageView()
         setupScoreView()
         setupStackView()
@@ -45,6 +46,7 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         topView.addBottomRoundedCornerToView(targetView: topView, desiredCurve: 2)
         setupTopView()
+//        setupProfileButtonShadow()
     }
     
     @IBAction func didTapThema(_ sender: UIButton) {
@@ -86,6 +88,15 @@ class HomeViewController: UIViewController {
         topView.clipsToBounds       = true
         topView.layer.masksToBounds = false
     }
+    
+    private func setupProfileButtonShadow() {
+           profileButton.layer.shadowColor   = UIColor.black.cgColor
+           profileButton.layer.shadowOffset  = CGSize(width: 0.0, height: 3.0)
+           profileButton.layer.shadowRadius  = 5
+           profileButton.layer.shadowOpacity = 0.5
+           profileButton.clipsToBounds       = true
+           profileButton.layer.masksToBounds = true
+       }
     
     private func setupButtons() {
         theme1Button.layer.cornerRadius = 10
@@ -140,6 +151,8 @@ class HomeViewController: UIViewController {
     private func setupImageView() {
         profileButton.layer.cornerRadius = profileButton.frame.height / 2
         profileButton.clipsToBounds = true
+        profileButton.layer.borderWidth = 1
+        profileButton.layer.borderColor = Colors.clearBlue.cgColor
     }
     
     private func getProfileImage(_ profil: Profil) {

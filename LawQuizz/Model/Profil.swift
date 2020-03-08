@@ -17,6 +17,7 @@ struct Profil: Equatable {
     let totalQuestions: Int
     let goodAnswers: Int
     let wrongAnswers: Int
+    
 
     var dictionary: [String: Any] {
         return [
