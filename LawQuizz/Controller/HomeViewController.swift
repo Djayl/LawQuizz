@@ -22,23 +22,28 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var themeStackView: UIStackView!
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var schoolRank: UILabel!
     
+    var allUsers = [Profil]()
+    var fellows = [Profil]()
+    var userSchool = ""
+    var userID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
-        
-//        setupProfileImageView()
         setupScoreView()
         setupStackView()
         toggleButtons()
         setupImageView()
+        fecthUsersCollection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkIfUserLoggedIn()
         listenProfilInformation()
+        
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -46,7 +51,6 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         topView.addBottomRoundedCornerToView(targetView: topView, desiredCurve: 2)
         setupTopView()
-//        setupProfileButtonShadow()
     }
     
     @IBAction func didTapThema(_ sender: UIButton) {
@@ -145,7 +149,9 @@ class HomeViewController: UIViewController {
        }
     
     private func getProfilInfos(_ profil: Profil) {
-        totalLabel.text = "\(profil.totalQuestions)"
+//        totalLabel.text = "\(profil.totalQuestions)"
+        userSchool = profil.school
+        userID = profil.identifier
     }
     
     private func setupImageView() {
@@ -179,6 +185,56 @@ class HomeViewController: UIViewController {
                }
            }
        }
+    private func fecthUsersCollection() {
+           let firestoreService = FirestoreService<Profil>()
+           firestoreService.fetchCollection(endpoint: .user) { [weak self] result in
+               switch result {
+               case .success(let users):
+                   self?.allUsers = users.sorted {
+                       $0.rank > $1.rank
+                   }
+                   self?.fellows.removeAll()
+                   for user in users {
+                       if user.school == self?.userSchool {
+                           self?.fellows.append(user)
+                           self?.fellows.sort {
+                               $0.rank > $1.rank
+                           }
+                       }
+                   }
+                   print(self?.userSchool as Any)
+                   print(self?.fellows.count as Any)
+                   self?.setRank()
+                   self?.setSchoolRank()
+               case .failure(let error):
+                   print(error.localizedDescription)
+                   self?.presentAlert(with: "Erreur réseau")
+               }
+           }
+       }
 
-
+    
+    private func setRank() {
+        for (index, user) in allUsers.enumerated() {
+            if user.identifier == userID {
+                if (index + 1) == 1 {
+                    totalLabel.text =  "\(index + 1)er"
+                } else {
+                    totalLabel.text = "\(index + 1)ème"
+                }
+            }
+        }
+    }
+    
+    private func setSchoolRank() {
+        for (index, user) in fellows.enumerated() {
+            if user.identifier == userID {
+                if (index + 1) == 1 {
+                    schoolRank.text =  "\(index + 1)er"
+                } else {
+                    schoolRank.text = "\(index + 1)ème"
+                }
+            }
+        }
+    }
 }

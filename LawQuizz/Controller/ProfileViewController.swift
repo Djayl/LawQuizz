@@ -30,6 +30,8 @@ class ProfileViewController: UIViewController {
     var schoolUsersSorted = [(key: String, value: Double)]()
     var users = [String]()
     var fellows = [String]()
+    var utilisateurs = [Profil]()
+    var camarades = [Profil]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +45,25 @@ class ProfileViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.barTintColor = Colors.darkBlue
         listenProfilInformation()
-        listenUsersCollection()
+//        listenUsersCollection()
+       fecthUsersCollection()
+//        getSchoolRank()
     }
+    
     @IBAction func didTapButton(_ sender: Any) {
         
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "RankingVC") as! RankingViewController
-        secondViewController.allusers = users
+        secondViewController.users = utilisateurs
+        secondViewController.navigationItem.title = "Classement général"
             self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
+    @IBAction func didTapSecondButton(_ sender: Any) {
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "RankingVC") as! RankingViewController
+               secondViewController.users = camarades
+        secondViewController.navigationItem.title = "Classement école"
+                   self.navigationController?.pushViewController(secondViewController, animated: true)
+    }
     private func setupImageView() {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         goToSchoolRankButton.layer.cornerRadius = 10
@@ -69,9 +81,15 @@ class ProfileViewController: UIViewController {
         let totalAnswers = Double(profil.totalQuestions)
         let percentage1 = Double((goodAnswers / totalAnswers )*100)
         let percentage1Rounded = String(format: "%.1f", percentage1)
+        if percentage1 <= 35 {
+          goodAnswersLabel.textColor = Colors.red
+        } else if percentage1 <= 60 {
+          goodAnswersLabel.textColor = Colors.orange
+        } else {
+          goodAnswersLabel.textColor = Colors.green
+        }
         
-        goodAnswersLabel.textColor = Colors.clearBlue
-        goodAnswersLabel.text = "Pourcentage de bonnes réponses: "+"\(percentage1Rounded)%"
+        goodAnswersLabel.text = "Bonnes réponses: "+"\(percentage1Rounded)%"
         
     }
     
@@ -156,19 +174,6 @@ class ProfileViewController: UIViewController {
                 }
             }
         }
-        
-        
-       
-//        let userPosition = users.firstIndex(where: {$0.key == "\(userID)"})
-//
-//        print(userPosition as Any)
-        
-//        for i in 0...users.count {
-//        if users[i].key == userID {
-//        let userPosition = i
-//            print(userPosition)
-//        }
-//        }
     }
     
     private func listenProfilInformation() {
@@ -231,6 +236,83 @@ class ProfileViewController: UIViewController {
         button.sizeToFit()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         button.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+    }
+    
+    private func fecthUsersCollection() {
+        let firestoreService = FirestoreService<Profil>()
+        firestoreService.fetchCollection(endpoint: .user) { [weak self] result in
+            switch result {
+            case .success(let users):
+                self?.utilisateurs = users.sorted {
+                    $0.rank > $1.rank
+                }
+                self?.camarades.removeAll()
+                for user in users {
+                    if user.school == self?.userSchool {
+                        self?.camarades.append(user)
+                        self?.camarades.sort {
+                            $0.rank > $1.rank
+                        }
+                    }
+                }
+                print(self?.userSchool as Any)
+                print(self?.camarades.count as Any)
+                self?.setRank()
+                self?.setSchoolRank()
+            case .failure(let error):
+                print(error.localizedDescription)
+                self?.presentAlert(with: "Erreur réseau")
+            }
+        }
+    }
+    
+    private func getSchoolRank() {
+       
+        let firestoreService = FirestoreService<Profil>()
+              firestoreService.fetchCollection(endpoint: .user) { [weak self] result in
+                  switch result {
+                  case .success(let users):
+                    for user in users {
+                        if user.school == self?.userSchool {
+                            self?.camarades.append(user)
+                            self?.camarades.sort {
+                                $0.rank > $1.rank
+                            }
+                        }
+                    }
+                      print(self?.userSchool as Any)
+                      print(self?.camarades.count as Any)
+                    
+                      self?.setSchoolRank()
+                  case .failure(let error):
+                      print(error.localizedDescription)
+                      self?.presentAlert(with: "Erreur réseau")
+                  }
+              }
+    }
+    
+    private func setRank() {
+        for (index, user) in utilisateurs.enumerated() {
+            if user.identifier == userID {
+                if (index + 1) == 1 {
+                    userRank.text =  "Classement général: \(index + 1)er"
+                } else {
+                    userRank.text = "Classement général: \(index + 1)ème"
+                }
+            }
+        }
+    }
+    
+    private func setSchoolRank() {
+        for (index, user) in camarades.enumerated() {
+            if user.identifier == userID {
+                if (index + 1) == 1 {
+                    schoolUserRank.text =  "Classement à \(userSchool): \(index + 1)er"
+                } else {
+                    schoolUserRank.text = "Classement à \(userSchool): \(index + 1)ème"
+                }
+            }
+        }
     }
     
 }

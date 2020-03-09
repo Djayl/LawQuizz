@@ -486,43 +486,58 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVg-6Z-bX4">
                                                         <rect key="frame" x="143" y="15" width="2" height="40"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="FXP-mE-MQw"/>
                                                             <constraint firstAttribute="width" constant="2" id="aXP-kQ-o9Z"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total questions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSL-Dx-9UE">
-                                                        <rect key="frame" x="16" y="8" width="117" height="22"/>
-                                                        <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="15"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classement" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz2-Yy-9IZ">
-                                                        <rect key="frame" x="161" y="8" width="111" height="22"/>
-                                                        <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="15"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOe-YW-WyP">
-                                                        <rect key="frame" x="16" y="38" width="111" height="25"/>
-                                                        <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="JUZ-ct-EX2">
+                                                        <rect key="frame" x="8" y="8" width="127" height="54"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="podium" translatesAutoresizingMaskIntoConstraints="NO" id="tIs-Nc-i7j">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="54"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="50" id="5uu-dR-Kuz"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOe-YW-WyP">
+                                                                <rect key="frame" x="52" y="0.0" width="75" height="54"/>
+                                                                <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="5oe-Dk-nnR">
+                                                        <rect key="frame" x="153" y="8" width="127" height="54"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="school" translatesAutoresizingMaskIntoConstraints="NO" id="L5I-5N-Ry1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="54"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="50" id="e59-zv-tL7"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRM-Ce-14n">
+                                                                <rect key="frame" x="52" y="0.0" width="75" height="54"/>
+                                                                <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.82830705520000003" green="0.46424617219999997" blue="0.33838637319999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="JUZ-ct-EX2" secondAttribute="bottom" constant="8" id="2uY-Cd-qUn"/>
                                                     <constraint firstAttribute="height" constant="70" id="5zj-WD-VPm"/>
-                                                    <constraint firstItem="FVg-6Z-bX4" firstAttribute="leading" secondItem="UOe-YW-WyP" secondAttribute="trailing" constant="16" id="7kd-O9-aXU"/>
-                                                    <constraint firstItem="oz2-Yy-9IZ" firstAttribute="leading" secondItem="FVg-6Z-bX4" secondAttribute="trailing" constant="16" id="8fk-go-GQZ"/>
-                                                    <constraint firstItem="UOe-YW-WyP" firstAttribute="top" secondItem="JSL-Dx-9UE" secondAttribute="bottom" constant="8" id="K8Y-zV-vX6"/>
-                                                    <constraint firstItem="JSL-Dx-9UE" firstAttribute="leading" secondItem="0qp-eg-RT9" secondAttribute="leading" constant="16" id="Kxv-Ap-Tcq"/>
-                                                    <constraint firstItem="JSL-Dx-9UE" firstAttribute="top" secondItem="0qp-eg-RT9" secondAttribute="top" constant="8" id="NwO-hj-iaW"/>
-                                                    <constraint firstItem="oz2-Yy-9IZ" firstAttribute="top" secondItem="0qp-eg-RT9" secondAttribute="top" constant="8" id="PXA-Hn-zph"/>
-                                                    <constraint firstItem="UOe-YW-WyP" firstAttribute="leading" secondItem="0qp-eg-RT9" secondAttribute="leading" constant="16" id="WEn-RW-7vM"/>
-                                                    <constraint firstAttribute="trailing" secondItem="oz2-Yy-9IZ" secondAttribute="trailing" constant="16" id="alF-Xm-aQL"/>
-                                                    <constraint firstItem="FVg-6Z-bX4" firstAttribute="leading" secondItem="JSL-Dx-9UE" secondAttribute="trailing" constant="10" id="bF2-aa-imD"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5oe-Dk-nnR" secondAttribute="trailing" constant="8" id="Glm-A3-wM2"/>
+                                                    <constraint firstAttribute="bottom" secondItem="5oe-Dk-nnR" secondAttribute="bottom" constant="8" id="b9q-Hf-Qxa"/>
+                                                    <constraint firstItem="JUZ-ct-EX2" firstAttribute="leading" secondItem="0qp-eg-RT9" secondAttribute="leading" constant="8" id="bQl-3H-3Nb"/>
+                                                    <constraint firstItem="5oe-Dk-nnR" firstAttribute="top" secondItem="0qp-eg-RT9" secondAttribute="top" constant="8" id="eBG-jF-MfA"/>
+                                                    <constraint firstItem="JUZ-ct-EX2" firstAttribute="top" secondItem="0qp-eg-RT9" secondAttribute="top" constant="8" id="jUO-aV-cwR"/>
+                                                    <constraint firstItem="5oe-Dk-nnR" firstAttribute="leading" secondItem="FVg-6Z-bX4" secondAttribute="trailing" constant="8" id="k7n-G6-Vls"/>
+                                                    <constraint firstItem="FVg-6Z-bX4" firstAttribute="leading" secondItem="JUZ-ct-EX2" secondAttribute="trailing" constant="8" id="n79-1S-5Ja"/>
                                                     <constraint firstItem="FVg-6Z-bX4" firstAttribute="centerX" secondItem="0qp-eg-RT9" secondAttribute="centerX" id="qZo-sM-k4E"/>
                                                     <constraint firstItem="FVg-6Z-bX4" firstAttribute="centerY" secondItem="0qp-eg-RT9" secondAttribute="centerY" id="yhX-99-3QR"/>
                                                 </constraints>
@@ -566,6 +581,7 @@
                     <navigationItem key="navigationItem" id="8Yh-q5-4pF"/>
                     <connections>
                         <outlet property="profileButton" destination="wrZ-l4-qkA" id="SHJ-1W-GkR"/>
+                        <outlet property="schoolRank" destination="rRM-Ce-14n" id="ue4-Lg-XVJ"/>
                         <outlet property="scoreView" destination="0qp-eg-RT9" id="lRq-kn-2dH"/>
                         <outlet property="theme1Button" destination="Upg-iQ-fOz" id="CRX-wY-Gb1"/>
                         <outlet property="theme2Button" destination="8b9-SA-iWO" id="FS1-3J-d9J"/>
@@ -654,6 +670,9 @@
                                 <state key="normal" title="Voir le classement dans votre école">
                                     <color key="titleColor" red="0.19060003759999999" green="0.24882894750000001" blue="0.33726659419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapSecondButton:" destination="Sg9-pL-7Dt" eventType="touchUpInside" id="th0-5K-CqG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -705,7 +724,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NLh-cP-zpW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NLh-cP-zpW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -1314,5 +1333,7 @@
     <resources>
         <image name="account" width="42.5" height="42.5"/>
         <image name="letter-x" width="42.5" height="42.5"/>
+        <image name="podium" width="42.5" height="42.5"/>
+        <image name="school" width="42.5" height="42.5"/>
     </resources>
 </document>
