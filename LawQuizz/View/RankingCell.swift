@@ -15,6 +15,7 @@ class RankingCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var schoolUserLabel: UILabel!
     @IBOutlet weak var userRankLabel: UILabel!
+    @IBOutlet weak var schoolName: UILabel!
     
 
     override func awakeFromNib() {
@@ -23,12 +24,22 @@ class RankingCell: UITableViewCell {
     }
     
     func configureCell(user: Profil) {
+        usernameLabel.isHidden = false
+        schoolUserLabel.isHidden = false
+        profileImageView.isHidden = false
+        schoolName.isHidden = true
         usernameLabel.text = user.userName.capitalized
         schoolUserLabel.text = user.school
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
-        
-        
         getImage(user)
+    }
+    
+    func configureCellWithSchool(school: School) {
+        usernameLabel.isHidden = true
+        schoolUserLabel.isHidden = true
+        profileImageView.isHidden = true
+        schoolName.isHidden = false
+        schoolName.text = school.name
     }
     
     private func getImage(_ user: Profil) {

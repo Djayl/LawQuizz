@@ -38,36 +38,45 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEu-39-OC3">
                                         <rect key="frame" x="0.0" y="0.0" width="48.5" height="25"/>
                                         <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApD-mI-9Oc">
                                         <rect key="frame" x="0.0" y="35" width="48.5" height="25"/>
                                         <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUa-7e-sG1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUa-7e-sG1">
                                 <rect key="frame" x="251" y="22" width="51" height="26.5"/>
                                 <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="18"/>
-                                <color key="textColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okF-fe-UBU">
+                                <rect key="frame" x="8" y="22.5" width="227" height="25"/>
+                                <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="17"/>
+                                <color key="textColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="9LF-W5-Xy6" firstAttribute="leading" secondItem="RT3-8z-KqC" secondAttribute="leading" constant="8" id="4m2-vb-jbf"/>
                             <constraint firstItem="BUa-7e-sG1" firstAttribute="centerY" secondItem="RT3-8z-KqC" secondAttribute="centerY" id="I2y-UF-6NI"/>
                             <constraint firstItem="iap-c7-8w2" firstAttribute="leading" secondItem="9LF-W5-Xy6" secondAttribute="trailing" constant="8" id="P5b-gb-IZD"/>
+                            <constraint firstItem="BUa-7e-sG1" firstAttribute="leading" secondItem="okF-fe-UBU" secondAttribute="trailing" constant="16" id="TNr-SQ-xZK"/>
                             <constraint firstItem="9LF-W5-Xy6" firstAttribute="centerY" secondItem="RT3-8z-KqC" secondAttribute="centerY" id="a2K-bb-VLT"/>
                             <constraint firstAttribute="trailing" secondItem="BUa-7e-sG1" secondAttribute="trailing" constant="8" id="gFB-mf-CYZ"/>
+                            <constraint firstItem="okF-fe-UBU" firstAttribute="centerY" secondItem="RT3-8z-KqC" secondAttribute="centerY" id="nCl-YM-hIn"/>
+                            <constraint firstItem="okF-fe-UBU" firstAttribute="leading" secondItem="RT3-8z-KqC" secondAttribute="leading" constant="8" id="qCX-nL-UFk"/>
                             <constraint firstItem="iap-c7-8w2" firstAttribute="centerY" secondItem="9LF-W5-Xy6" secondAttribute="centerY" id="wfi-db-I8Y"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstItem="RT3-8z-KqC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="4cY-yt-LDb"/>
                     <constraint firstAttribute="trailing" secondItem="RT3-8z-KqC" secondAttribute="trailing" constant="5" id="4wN-Ea-gmG"/>
@@ -75,9 +84,11 @@
                     <constraint firstAttribute="bottom" secondItem="RT3-8z-KqC" secondAttribute="bottom" constant="5" id="j6A-Sf-iMt"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="profileImageView" destination="9LF-W5-Xy6" id="6Dx-sd-g4C"/>
+                <outlet property="schoolName" destination="okF-fe-UBU" id="aMo-Ho-CQ9"/>
                 <outlet property="schoolUserLabel" destination="ApD-mI-9Oc" id="umh-Sm-QGi"/>
                 <outlet property="userRankLabel" destination="BUa-7e-sG1" id="5tm-8u-H1H"/>
                 <outlet property="usernameLabel" destination="UEu-39-OC3" id="tlT-PW-txk"/>

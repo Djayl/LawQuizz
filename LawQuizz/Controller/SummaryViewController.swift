@@ -40,6 +40,7 @@ class SummaryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         listenProfilInformation()
     }
     
@@ -84,9 +85,8 @@ class SummaryViewController: UIViewController {
     
     private func updateRankInFirestore() {
         let firestoreService = FirestoreService<Profil>()
-        let first = Double(userGoodAnswers)
-        let second = Double(userTotalQuestions)
-        let average = Double(first / second)
+        let goodAnswers = Double(userGoodAnswers)
+        let average = Double(goodAnswers / 1000)
         let averageTruncated = average.truncateDigitsAfterDecimal(number: average, afterDecimalDigits: 4)
         let data = ["rank": averageTruncated]
         print(averageTruncated)

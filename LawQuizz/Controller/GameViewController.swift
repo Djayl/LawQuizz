@@ -48,6 +48,7 @@ class GameViewController: UIViewController {
     var playerAnswers = [String]()
     var userGoodAnswers = 0
     var userTotalQuestions = 0
+    var userSchool = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -248,6 +249,21 @@ class GameViewController: UIViewController {
                }
        }
     
+    private func updateSchoolScoreInFirestore() {
+        let firestoreService = FirestoreService<School>()
+        let data = ["goodAnswers": FieldValue.increment(Int64(score))]
+        
+        firestoreService.updateData(endpoint: .school(schoolId: userSchool), data: data) { [weak self] result in
+            switch result {
+            case .success(let successMessage):
+                print(successMessage)
+            case .failure(let error):
+                print("Error adding document: \(error)")
+                self?.presentAlert(with: "Erreur réseau")
+            }
+        }
+    }
+    
 //    private func getRank(_ profil: Profil) {
 //        userGoodAnswers = profil.goodAnswers
 //        userTotalQuestions = profil.totalQuestions
@@ -383,9 +399,7 @@ class GameViewController: UIViewController {
     func gameOver() {
         if questionAnswered == 10 {
             updateScoreInFirestore()
-            
-//            updateGoodAnswer()
-//            updateWrongAnswer()
+            updateSchoolScoreInFirestore()
            let scoreLabel = score*10
             let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "ScoreAlertVC") as!
             ScoreAlertViewController

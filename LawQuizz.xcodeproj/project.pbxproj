@@ -31,11 +31,13 @@
 		F0580197240FC2B20040BA8B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580196240FC2B20040BA8B /* Question.swift */; };
 		F0580199240FC2D50040BA8B /* Profil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580198240FC2D50040BA8B /* Profil.swift */; };
 		F058019B240FC2F40040BA8B /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */; };
+		F05AE7512417A62B001D8D62 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05AE7502417A62B001D8D62 /* School.swift */; };
 		F05BF8FB24150CEC00042936 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BF8FA24150CEC00042936 /* Dictionary.swift */; };
 		F064DED3240E765B00E4CD4E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED2240E765B00E4CD4E /* HomeViewController.swift */; };
 		F064DED5240E7AB800E4CD4E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED4240E7AB800E4CD4E /* UIView.swift */; };
 		F064DED7240E7DD700E4CD4E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED6240E7DD700E4CD4E /* Colors.swift */; };
 		F0AE716B240FD845002E5387 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE716A240FD845002E5387 /* ProfileViewController.swift */; };
+		F0AEA2E32417E8BC00114C9E /* GeneralRankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEA2E22417E8BC00114C9E /* GeneralRankingViewController.swift */; };
 		F0D7B174240BE3B40088F03F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D7B173240BE3B40088F03F /* AppDelegate.swift */; };
 		F0D7B17B240BE3B40088F03F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B179240BE3B40088F03F /* Main.storyboard */; };
 		F0D7B17D240BE3B50088F03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B17C240BE3B50088F03F /* Assets.xcassets */; };
@@ -71,11 +73,13 @@
 		F0580196240FC2B20040BA8B /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F0580198240FC2D50040BA8B /* Profil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profil.swift; sourceTree = "<group>"; };
 		F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
+		F05AE7502417A62B001D8D62 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		F05BF8FA24150CEC00042936 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		F064DED2240E765B00E4CD4E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F064DED4240E7AB800E4CD4E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		F064DED6240E7DD700E4CD4E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F0AE716A240FD845002E5387 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F0AEA2E22417E8BC00114C9E /* GeneralRankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRankingViewController.swift; sourceTree = "<group>"; };
 		F0D7B170240BE3B40088F03F /* LawQuizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LawQuizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D7B173240BE3B40088F03F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D7B17A240BE3B40088F03F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 				F0580196240FC2B20040BA8B /* Question.swift */,
 				F0580198240FC2D50040BA8B /* Profil.swift */,
 				F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */,
+				F05AE7502417A62B001D8D62 /* School.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				F0AE716A240FD845002E5387 /* ProfileViewController.swift */,
 				F05749AC241263DE008ECD24 /* SummaryViewController.swift */,
 				F0536DB4241545C1006070C9 /* RankingViewController.swift */,
+				F0AEA2E22417E8BC00114C9E /* GeneralRankingViewController.swift */,
 				F058018B240FC1950040BA8B /* Authentication Controllers */,
 			);
 			path = Controller;
@@ -349,6 +355,7 @@
 				F052EC23241101A00050C36A /* ScoreAlertViewController.swift in Sources */,
 				F0580197240FC2B20040BA8B /* Question.swift in Sources */,
 				F064DED7240E7DD700E4CD4E /* Colors.swift in Sources */,
+				F05AE7512417A62B001D8D62 /* School.swift in Sources */,
 				F058018F240FC2120040BA8B /* Endpoint.swift in Sources */,
 				F0D7B18C240BE86F0088F03F /* GameViewController.swift in Sources */,
 				F0580199240FC2D50040BA8B /* Profil.swift in Sources */,
@@ -368,6 +375,7 @@
 				F05BF8FB24150CEC00042936 /* Dictionary.swift in Sources */,
 				F05749AD241263DE008ECD24 /* SummaryViewController.swift in Sources */,
 				F0580195240FC28A0040BA8B /* UIViewController.swift in Sources */,
+				F0AEA2E32417E8BC00114C9E /* GeneralRankingViewController.swift in Sources */,
 				F0580191240FC2380040BA8B /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

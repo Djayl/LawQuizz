@@ -12,14 +12,9 @@ public enum Endpoint {
     case user
     case currentUser
     case score
-    case publicCollection
-    case publicSpot(spotId: String)
-    case favorite(spotId: String)
-    case favoriteCollection
-    case favoriteSpot(spotId: String)
+    case school(schoolId: String)
+    case schools
     case particularUser(userId: String)
-    case particularUserCollection(userId: String)
-    case privateSpot(spotId: String)
     case question(category: String, questionId: String)
 }
 
@@ -39,22 +34,12 @@ extension Endpoint {
             return "users/\(userId)"
         case .score:
             return "users/\(userId)/score"
-        case .publicCollection:
-            return "spots"
-        case let .favorite(spotId):
-            return "users/\(userId)/favorites/\(spotId)"
-        case let .publicSpot(spotId):
-            return "spots/\(spotId)"
-        case .favoriteCollection:
-            return "users/\(userId)/favorites"
-        case let .favoriteSpot(spotId):
-            return "users/\(userId)/favorites/\(spotId)"
+        case let .school(schoolId):
+            return "schools/\(schoolId)"
+        case .schools:
+            return "schools"
         case let .particularUser(userId):
             return "users/\(userId)"
-        case let .particularUserCollection(userId):
-            return "users/\(userId)/spots"
-        case let .privateSpot(spotId):
-        return "users/\(userId)/spots/\(spotId)"
         case let .question(category, questionId):
             return "questions/\(category)/questions/\(questionId)"
         }

@@ -21,8 +21,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var theme5Button: UIButton!
     @IBOutlet weak var themeStackView: UIStackView!
     @IBOutlet weak var profileButton: UIButton!
-    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var generalRankButton: UIButton!
+    @IBOutlet weak var schoolRankButton: UIButton!
+    @IBOutlet weak var generalRank: UILabel!
     @IBOutlet weak var schoolRank: UILabel!
+    
     
     var allUsers = [Profil]()
     var fellows = [Profil]()
@@ -36,14 +39,15 @@ class HomeViewController: UIViewController {
         setupStackView()
         toggleButtons()
         setupImageView()
-        fecthUsersCollection()
+        setupSchoolRankButton()
+        setupGeneralRankButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkIfUserLoggedIn()
         listenProfilInformation()
-        
+        fecthUsersCollection()
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -51,6 +55,20 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         topView.addBottomRoundedCornerToView(targetView: topView, desiredCurve: 2)
         setupTopView()
+    }
+    @IBAction func goToGeneralrank(_ sender: Any) {
+        let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "GeneralRankingVC") as! GeneralRankingViewController
+        secondVC.users = allUsers
+        secondVC.userID = userID
+        self.navigationController?.pushViewController(secondVC, animated: true)
+    }
+    @IBAction func goToSchoolRank(_ sender: Any) {
+        let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "RankingVC") as! RankingViewController
+        secondVC.users = fellows
+        secondVC.userID = userID
+        secondVC.userSchool = userSchool
+        secondVC.navigationItem.title = "Classement école"
+        self.navigationController?.pushViewController(secondVC, animated: true)
     }
     
     @IBAction func didTapThema(_ sender: UIButton) {
@@ -72,15 +90,19 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func goToProfile(_ sender: Any) {
-         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileViewController
-               
-               self.navigationController?.pushViewController(secondViewController, animated: true)
+         let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileViewController
+        guard let generalRank = generalRank.text else {return}
+        guard let schoolRank = schoolRank.text else {return}
+        secondVC.generalRank = generalRank
+        secondVC.schoolRank = schoolRank
+         self.navigationController?.pushViewController(secondVC, animated: true)
     }
     
     
     private func pushToGameVC(_ data: String) {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "GameVC") as! GameViewController
         secondViewController.thema = data
+        secondViewController.userSchool = userSchool
             self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
@@ -119,6 +141,26 @@ class HomeViewController: UIViewController {
         scoreView.layer.shadowOpacity = 0.5
         scoreView.clipsToBounds       = true
         scoreView.layer.masksToBounds = false
+    }
+    
+    private func setupGeneralRankButton() {
+        schoolRankButton.layer.cornerRadius = schoolRankButton.frame.height / 2
+        schoolRankButton.layer.shadowColor   = UIColor.black.cgColor
+        schoolRankButton.layer.shadowOffset  = CGSize(width: 0.0, height: 3.0)
+        schoolRankButton.layer.shadowRadius  = 5
+        schoolRankButton.layer.shadowOpacity = 0.5
+//        schoolRankButton.clipsToBounds       = true
+//        schoolRankButton.layer.masksToBounds = false
+    }
+    
+    private func setupSchoolRankButton() {
+        generalRankButton.layer.cornerRadius = generalRankButton.frame.height / 2
+        generalRankButton.layer.shadowColor   = UIColor.black.cgColor
+        generalRankButton.layer.shadowOffset  = CGSize(width: 0.0, height: 3.0)
+        generalRankButton.layer.shadowRadius  = 5
+        generalRankButton.layer.shadowOpacity = 0.5
+//        generalRankButton.clipsToBounds       = true
+//        generalRankButton.layer.masksToBounds = false
     }
     
     private func setupStackView() {
@@ -218,9 +260,9 @@ class HomeViewController: UIViewController {
         for (index, user) in allUsers.enumerated() {
             if user.identifier == userID {
                 if (index + 1) == 1 {
-                    totalLabel.text =  "\(index + 1)er"
+                    generalRank.text =  "\(index + 1)er"
                 } else {
-                    totalLabel.text = "\(index + 1)ème"
+                    generalRank.text = "\(index + 1)ème"
                 }
             }
         }

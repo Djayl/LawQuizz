@@ -13,25 +13,46 @@ class RankingViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet var topView: UIView!
     
     
     var users = [Profil]()
+    var schools = [School]()
     var allusers = [String]()
+    var userID = ""
+    var userSchool = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
-//        fecthUsersCollection()
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.white,
-             NSAttributedString.Key.font: UIFont(name: "SpartanMB-Bold", size: 21)!]
-//        self.navigationItem.title = "Classement général"
+             NSAttributedString.Key.font: UIFont(name: "SpartanMB-Bold", size: 20)!]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
         tableView.reloadData()
+        fecthUsersCollection()
         tableView.register(UINib(nibName: "RankingCell", bundle: nil),forCellReuseIdentifier: "RankingCell")
+    }
+    
+    @IBAction func didChooseData(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            print("Tag 0")
+            print(users.count)
+            tableView.reloadData()
+        case 1:
+            print("Tag 1")
+            fecthUsersCollection()
+            print(schools as Any)
+            tableView.reloadData()
+        default:
+            break
+        }
     }
     
     fileprivate func setUpTableView() {
@@ -40,50 +61,23 @@ class RankingViewController: UIViewController {
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.tableFooterView = UIView()
-        tableView.backgroundColor = UIColor.white
+//        tableView.backgroundColor = UIColor.white
     }
-    
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //        users.removeAll()
-    //    }
-    
-    //    private func getUserData(_ profil: Profil) {
-    //
-    //        for item in allusers {
-    ////            if item == profil.identifier {
-    //                let id = item
-    //                let email = profil.email
-    //                let userName = profil.userName
-    //                let imageURL = profil.imageURL
-    //                let school = profil.school
-    //                let totalQuestions = profil.totalQuestions
-    //                let goodAnswers = profil.goodAnswers
-    //                let wrongAnswers = profil.wrongAnswers
-    //
-    //                let user = Profil(identifier: id, email: email, userName: userName, imageURL: imageURL, school: school, totalQuestions: totalQuestions, goodAnswers: goodAnswers, wrongAnswers: wrongAnswers)
-    //
-    //                users.append(user)
-    //                print(user.userName)
-    //            }
-    //        tableView.reloadData()
-    //
-    ////        }
-    //    }
-    
-    private func fecthUsersCollection() {
-        let firestoreService = FirestoreService<Profil>()
         
-        firestoreService.fetchCollection(endpoint: .user) { [weak self] result in
+    private func fecthUsersCollection() {
+        let firestoreService = FirestoreService<School>()
+        
+        firestoreService.fetchCollection(endpoint: .schools) { [weak self] result in
             switch result {
-            case .success(let users):
-                self?.users.removeAll()
-                self?.users = users.sorted {
-                    $0.rank > $1.rank
+            case .success(let schools):
+                self?.schools.removeAll()
+                self?.schools = schools
+                self?.schools.sort {
+                    $0.goodAnswers > $1.goodAnswers
                 }
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
+//                DispatchQueue.main.async {
+//                    self?.tableView.reloadData()
+//                }
             case .failure(let error):
                 print(error.localizedDescription)
                 self?.presentAlert(with: "Erreur réseau")
@@ -106,18 +100,40 @@ extension RankingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RankingCell") as? RankingCell {
+            if segmentedControl.selectedSegmentIndex == 0 {
             cell.configureCell(user: users[indexPath.row])
-            cell.clipsToBounds = true
+                cell.userRankLabel.textColor = Colors.clearBlue
+            if users[indexPath.row].identifier == userID {
+                cell.usernameLabel.textColor = Colors.orange
+                cell.userRankLabel.textColor = Colors.orange
+                cell.schoolUserLabel.textColor = Colors.orange
+            }
             cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height / 2
+            
+            } else {
+                cell.configureCellWithSchool(school: schools[indexPath.row])
+                cell.userRankLabel.textColor = Colors.clearBlue
+                if schools[indexPath.row].name == userSchool {
+                    cell.schoolName.textColor = Colors.orange
+                    cell.userRankLabel.textColor = Colors.orange
+                }
+            }
             if ((indexPath.row) + 1) == 1 {
                 cell.userRankLabel.text = "\((indexPath.row) + 1)er"
             } else {
                 cell.userRankLabel.text = "\((indexPath.row) + 1)ème"
             }
+            cell.clipsToBounds = true
             cell.layoutMargins = UIEdgeInsets.zero
             
             return cell
         }
         return UITableViewCell()
     }
+    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if users[indexPath.row].identifier == userID {
+//            cell.tintColor = Colors.clearBlue
+//        }
+//    }
 }

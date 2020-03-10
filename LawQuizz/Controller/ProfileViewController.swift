@@ -19,8 +19,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var goodAnswersLabel: UILabel!
     @IBOutlet weak var userRank: UILabel!
     @IBOutlet weak var schoolUserRank: UILabel!
-    @IBOutlet weak var goToGeneralRankButton: UIButton!
-    @IBOutlet weak var goToSchoolRankButton: UIButton!
     
     var allUsers = [String:Double]()
     var schoolUsers = [String:Double]()
@@ -32,12 +30,15 @@ class ProfileViewController: UIViewController {
     var fellows = [String]()
     var utilisateurs = [Profil]()
     var camarades = [Profil]()
+    var generalRank = ""
+    var schoolRank = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImageView()
         setDeleteButton()
-        getAllUsersPosition()
+        
+//        getAllUsersPosition()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,29 +46,15 @@ class ProfileViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.barTintColor = Colors.darkBlue
         listenProfilInformation()
-//        listenUsersCollection()
-       fecthUsersCollection()
-//        getSchoolRank()
-    }
-    
-    @IBAction func didTapButton(_ sender: Any) {
+        displayGeneralRank()
+        displaySchoolRank()
+//        fecthUsersCollection()
         
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "RankingVC") as! RankingViewController
-        secondViewController.users = utilisateurs
-        secondViewController.navigationItem.title = "Classement général"
-            self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
-    @IBAction func didTapSecondButton(_ sender: Any) {
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "RankingVC") as! RankingViewController
-               secondViewController.users = camarades
-        secondViewController.navigationItem.title = "Classement école"
-                   self.navigationController?.pushViewController(secondViewController, animated: true)
-    }
     private func setupImageView() {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
-        goToSchoolRankButton.layer.cornerRadius = 10
-        goToGeneralRankButton.layer.cornerRadius = 10
+        
     }
     private func updateScreenWithProfil(_ profil: Profil) {
         usernameLabel.text = "\(profil.userName.capitalized)"
@@ -82,11 +69,11 @@ class ProfileViewController: UIViewController {
         let percentage1 = Double((goodAnswers / totalAnswers )*100)
         let percentage1Rounded = String(format: "%.1f", percentage1)
         if percentage1 <= 35 {
-          goodAnswersLabel.textColor = Colors.red
+            goodAnswersLabel.textColor = Colors.red
         } else if percentage1 <= 60 {
-          goodAnswersLabel.textColor = Colors.orange
+            goodAnswersLabel.textColor = Colors.orange
         } else {
-          goodAnswersLabel.textColor = Colors.green
+            goodAnswersLabel.textColor = Colors.green
         }
         
         goodAnswersLabel.text = "Bonnes réponses: "+"\(percentage1Rounded)%"
@@ -129,33 +116,32 @@ class ProfileViewController: UIViewController {
     private func setSchoolUsersDictionary(_ profil: Profil) {
         guard profil.totalQuestions != 0 else {
             schoolUserRank.text = "Classement à \(userSchool): Aucune donnée à afficher"
-        return}
+            return}
         let userGoodAnswers = Double(profil.goodAnswers)
-               let userTotalQuestions = Double(profil.totalQuestions)
-               let userId = profil.identifier
-               let average = Double(userGoodAnswers / userTotalQuestions)
-               let averageTruncated = average.truncateDigitsAfterDecimal(number: average, afterDecimalDigits: 4)
-               schoolUsers.updateValue(averageTruncated, forKey: userId)
-               schoolUsersSorted = schoolUsers.sorted(by: { $0.value > $1.value })
+        let userTotalQuestions = Double(profil.totalQuestions)
+        let userId = profil.identifier
+        let average = Double(userGoodAnswers / userTotalQuestions)
+        let averageTruncated = average.truncateDigitsAfterDecimal(number: average, afterDecimalDigits: 4)
+        schoolUsers.updateValue(averageTruncated, forKey: userId)
+        schoolUsersSorted = schoolUsers.sorted(by: { $0.value > $1.value })
     }
     
     private func getCurrentUserPositionInSchool() {
         
         for (item) in schoolUsersSorted.enumerated() {
-           
+            
             if item.element.key == userID {
-            print("\((item.offset) + 1): \(item.element.key) : \(item.element.value)")
+                print("\((item.offset) + 1): \(item.element.key) : \(item.element.value)")
                 if ((item.offset) + 1) == 1 {
-            schoolUserRank.text = "Classement à \(userSchool): \((item.offset) + 1)er"
+                    schoolUserRank.text = "Classement à \(userSchool): \((item.offset) + 1)er"
                 } else {
-                  schoolUserRank.text = "Classement à \(userSchool): \((item.offset) + 1)ème"
+                    schoolUserRank.text = "Classement à \(userSchool): \((item.offset) + 1)ème"
                 }
             }
         }
     }
     
     private func getAllUsersPosition() {
-        
         for (item) in usersSorted.enumerated() {
             users.append(item.element.key)
         }        
@@ -164,13 +150,13 @@ class ProfileViewController: UIViewController {
     private func getCurrentUserPosition() {
         
         for (item) in usersSorted.enumerated() {
-           
+            
             if item.element.key == userID {
-            print("\((item.offset) + 1): \(item.element.key) : \(item.element.value)")
+                print("\((item.offset) + 1): \(item.element.key) : \(item.element.value)")
                 if ((item.offset) + 1) == 1 {
-            userRank.text = "Classement général: \((item.offset) + 1)er"
+                    userRank.text = "Classement général: \((item.offset) + 1)er"
                 } else {
-                  userRank.text = "Classement général: \((item.offset) + 1)ème"
+                    userRank.text = "Classement général: \((item.offset) + 1)ème"
                 }
             }
         }
@@ -192,42 +178,42 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    private func listenUsersCollection() {
-        let firestoreService = FirestoreService<Profil>()
-        firestoreService.listenCollection(endpoint: .user) { [weak self] result in
-            switch result {
-            case .success(let users):
-                for user in users {
-                    self?.setAllUsersDictionary(user)
-                    if user.school == self?.userSchool {
-                        self?.setSchoolUsersDictionary(user)
-                        print(self?.userSchool as Any)
-                    }
-                }
-                self?.getCurrentUserPosition()
-                self?.getCurrentUserPositionInSchool()
-                self?.getAllUsersPosition()
-            case .failure(let error):
-                print(error.localizedDescription)
-                self?.presentAlert(with: "Erreur réseau")
-            }
-        }
-    }
+//    private func listenUsersCollection() {
+//        let firestoreService = FirestoreService<Profil>()
+//        firestoreService.listenCollection(endpoint: .user) { [weak self] result in
+//            switch result {
+//            case .success(let users):
+//                for user in users {
+//                    self?.setAllUsersDictionary(user)
+//                    if user.school == self?.userSchool {
+//                        self?.setSchoolUsersDictionary(user)
+//                        print(self?.userSchool as Any)
+//                    }
+//                }
+//                self?.getCurrentUserPosition()
+//                self?.getCurrentUserPositionInSchool()
+//                self?.getAllUsersPosition()
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//                self?.presentAlert(with: "Erreur réseau")
+//            }
+//        }
+//    }
     
     
     @objc private func logOut() {
-           presentAlertWithAction(message: "Êtes-vous sûr de vouloir vous déconnecter?") {
-               let authService = AuthService()
-               do {
-                   try authService.signOut()
-               } catch let signOutError as NSError {
-                   print ("Error signing out: %@", signOutError)
-               }
-               let storyboard = UIStoryboard(name: "Main", bundle: nil)
-               let initial = storyboard.instantiateInitialViewController()
-               UIApplication.shared.keyWindow?.rootViewController = initial
-           }
-       }
+        presentAlertWithAction(message: "Êtes-vous sûr de vouloir vous déconnecter?") {
+            let authService = AuthService()
+            do {
+                try authService.signOut()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initial = storyboard.instantiateInitialViewController()
+            UIApplication.shared.keyWindow?.rootViewController = initial
+        }
+    }
     
     private func setDeleteButton() {
         let button = UIButton(type: .system)
@@ -238,81 +224,42 @@ class ProfileViewController: UIViewController {
         button.addTarget(self, action: #selector(logOut), for: .touchUpInside)
     }
     
-    private func fecthUsersCollection() {
-        let firestoreService = FirestoreService<Profil>()
-        firestoreService.fetchCollection(endpoint: .user) { [weak self] result in
-            switch result {
-            case .success(let users):
-                self?.utilisateurs = users.sorted {
-                    $0.rank > $1.rank
-                }
-                self?.camarades.removeAll()
-                for user in users {
-                    if user.school == self?.userSchool {
-                        self?.camarades.append(user)
-                        self?.camarades.sort {
-                            $0.rank > $1.rank
-                        }
-                    }
-                }
-                print(self?.userSchool as Any)
-                print(self?.camarades.count as Any)
-                self?.setRank()
-                self?.setSchoolRank()
-            case .failure(let error):
-                print(error.localizedDescription)
-                self?.presentAlert(with: "Erreur réseau")
-            }
-        }
+//    private func fecthUsersCollection() {
+//        let firestoreService = FirestoreService<Profil>()
+//        firestoreService.fetchCollection(endpoint: .user) { [weak self] result in
+//            switch result {
+//            case .success(let users):
+//                self?.utilisateurs = users.sorted {
+//                    $0.rank > $1.rank
+//                }
+//                self?.camarades.removeAll()
+//                for user in users {
+//                    if user.school == self?.userSchool {
+//                        self?.camarades.append(user)
+//                        self?.camarades.sort {
+//                            $0.rank > $1.rank
+//                        }
+//                    }
+//                }
+//                print(self?.userSchool as Any)
+//                print(self?.camarades.count as Any)
+//                self?.setRank()
+//                self?.setSchoolRank()
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//                self?.presentAlert(with: "Erreur réseau")
+//            }
+//        }
+//    }
+//
+    private func displayGeneralRank() {
+        
+        userRank.text = "Classement général: \(generalRank)"
     }
     
-    private func getSchoolRank() {
-       
-        let firestoreService = FirestoreService<Profil>()
-              firestoreService.fetchCollection(endpoint: .user) { [weak self] result in
-                  switch result {
-                  case .success(let users):
-                    for user in users {
-                        if user.school == self?.userSchool {
-                            self?.camarades.append(user)
-                            self?.camarades.sort {
-                                $0.rank > $1.rank
-                            }
-                        }
-                    }
-                      print(self?.userSchool as Any)
-                      print(self?.camarades.count as Any)
-                    
-                      self?.setSchoolRank()
-                  case .failure(let error):
-                      print(error.localizedDescription)
-                      self?.presentAlert(with: "Erreur réseau")
-                  }
-              }
-    }
-    
-    private func setRank() {
-        for (index, user) in utilisateurs.enumerated() {
-            if user.identifier == userID {
-                if (index + 1) == 1 {
-                    userRank.text =  "Classement général: \(index + 1)er"
-                } else {
-                    userRank.text = "Classement général: \(index + 1)ème"
-                }
-            }
-        }
-    }
-    
-    private func setSchoolRank() {
-        for (index, user) in camarades.enumerated() {
-            if user.identifier == userID {
-                if (index + 1) == 1 {
-                    schoolUserRank.text =  "Classement à \(userSchool): \(index + 1)er"
-                } else {
-                    schoolUserRank.text = "Classement à \(userSchool): \(index + 1)ème"
-                }
-            }
-        }
+    private func displaySchoolRank() {
+        
+        schoolUserRank.text =  "Classement école: \(schoolRank)"
     }
     
 }
