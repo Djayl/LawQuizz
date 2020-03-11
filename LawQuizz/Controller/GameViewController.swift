@@ -90,17 +90,20 @@ class GameViewController: UIViewController {
             score += 1
             questionAnswered += 1
             gameTimer?.invalidate()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            enableButtons()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.fetchQuestion()
             }
         } else {
             questionAnswered += 1
             wrongAnswers += 1
             gameTimer?.invalidate()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            enableButtons()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.fetchQuestion()
             }
         }
+        disableButtons()
         scoreLabel.text = "Score: \(score)/\(questionAnswered)"
         guard let playerAnswer = sender.titleLabel?.text else {return}
         playerAnswers.append(playerAnswer)
@@ -110,6 +113,20 @@ class GameViewController: UIViewController {
     private func calculateScore() {
         let percentage = (score/questionAnswered) * 100
         scorePercentage = percentage
+    }
+    
+    private func disableButtons() {
+        let buttons = [buttonA, buttonB, buttonC, buttonD]
+        for button in buttons {
+            button?.isEnabled = false
+        }
+    }
+    
+    private func enableButtons() {
+        let buttons = [buttonA, buttonB, buttonC, buttonD]
+        for button in buttons {
+            button?.isEnabled = true
+        }
     }
     
     private func passDataToScoreVC() {
@@ -195,6 +212,7 @@ class GameViewController: UIViewController {
                 self?.startTimer()
                 self?.setTitlesForButton(question)
                 self?.hideImage()
+                self?.enableButtons()
                 for button in answersButton {
                     button?.backgroundColor = Colors.clearBlue
                 }
