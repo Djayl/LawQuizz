@@ -12,5 +12,6 @@ target 'LawQuizz' do
     pod 'Firebase/Storage'
     pod 'Firebase/Database'
     pod 'ProgressHUD'
+  
 
 end

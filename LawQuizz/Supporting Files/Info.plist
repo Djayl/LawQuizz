@@ -24,6 +24,8 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) a besoin de votre appareil photo pour votre photo de profil</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

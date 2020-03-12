@@ -128,12 +128,7 @@ class GameViewController: UIViewController {
             button?.isEnabled = true
         }
     }
-    
-    private func passDataToScoreVC() {
-        
-    }
 
-    
     private func checkMark(_ sender: UIButton, _ image: UIImageView) {
         image.layer.cornerRadius = image.frame.height/2
         image.isHidden = false
@@ -282,138 +277,6 @@ class GameViewController: UIViewController {
         }
     }
     
-//    private func getRank(_ profil: Profil) {
-//        userGoodAnswers = profil.goodAnswers
-//        userTotalQuestions = profil.totalQuestions
-//    }
-//
-//    private func listenProfilInformation() {
-//        let firestoreService = FirestoreService<Profil>()
-//        firestoreService.listenDocument(endpoint: .currentUser) { [weak self] result in
-//            switch result {
-//            case .success(let profil):
-//                self?.getRank(profil)
-//                print(self?.userGoodAnswers as Any)
-//                print(self?.userTotalQuestions as Any)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//                self?.presentAlert(with: "Erreur réseau")
-//            }
-//        }
-//    }
-//
-//    private func updateRankInFirestore() {
-//        let firestoreService = FirestoreService<Profil>()
-//        let average = Double(userGoodAnswers / userTotalQuestions)
-//        let averageTruncated = average.truncateDigitsAfterDecimal(number: average, afterDecimalDigits: 4)
-//        let data = ["rank": averageTruncated]
-//        firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
-//            switch result {
-//            case .success(let successMessage):
-//                print(successMessage)
-//            case .failure(let error):
-//                print("Error adding document: \(error)")
-//                self?.presentAlert(with: "Erreur réseau")
-//            }
-//        }
-//    }
-    
-//    private func updateGoodAnswer() {
-//        let firestoreService = FirestoreService<Profil>()
-//        let data = ["goodAnswers": FieldValue.increment(Int64(score))]
-//        firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
-//                   switch result {
-//                   case .success(let successMessage):
-//                       print(successMessage)
-//                   case .failure(let error):
-//                       print("Error adding document: \(error)")
-//                       self?.presentAlert(with: "Erreur réseau")
-//                   }
-//               }
-//    }
-//
-//    private func updateWrongAnswer() {
-//        let firestoreService = FirestoreService<Profil>()
-//        let data = ["wrongAnswers": FieldValue.increment(Int64(wrongAnswers))]
-//        firestoreService.updateData(endpoint: .currentUser, data: data) { [weak self] result in
-//                   switch result {
-//                   case .success(let successMessage):
-//                       print(successMessage)
-//                   case .failure(let error):
-//                       print("Error adding document: \(error)")
-//                       self?.presentAlert(with: "Erreur réseau")
-//                   }
-//               }
-//    }
-    
-//    private func setTimerAndFecth() {
-//
-//    gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimerAndFetch), userInfo: nil, repeats: true)
-//    }
-//
-//    @objc func runTimerAndFetch() {
-//
-//        counter -= 1
-//        timeLabel.text = "\(counter)"
-//
-//        if counter == 0 {
-//            outOfTime()
-//            counter = 5
-//        }
-//
-//    }
-    
-//    private func setTimer() {
-//
-//    gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
-//    }
-    
-//    @objc func runTimer() {
-//        setupCountdownLabel()
-//        if counter != 0 {
-//            timeLabel.text = "\(counter)"
-//            counter -= 1
-//        } else {
-//            gameTimer?.invalidate()
-//            counter = 20
-//            fetchQuestion()
-//        }
-//    }
-//
-//    private func stopTimer() {
-//        gameTimer?.invalidate()
-//        counter = 20
-//    }
-    
-//    private func setupCountdownLabel() {
-//        timeLabel.textColor = Colors.darkBlue
-//                   if counter <= 5 {
-//                    timeLabel.textColor = UIColor.systemRed
-//                  } else if counter <= 10 {
-//                    timeLabel.textColor = UIColor.systemOrange
-//                  }
-//    }
-
-
-//    @objc func changeTitle() {
-//
-//        if counter != 0
-//        {
-//            timeLabel.isHidden = false
-//            timeLabel.text = "\(counter)"
-//            counter -= 1
-//        }
-//        else
-//        {
-//            timeLabel.isHidden = true
-//            gameTimer?.invalidate()
-//            fetchQuestion()
-//
-//            //              button.backgroundColor = // set any color
-//        }
-//
-//    }
-    
     func gameOver() {
         if questionAnswered == 10 {
             updateScoreInFirestore()
@@ -426,27 +289,27 @@ class GameViewController: UIViewController {
             switch score {
             case 0..<3 :
                 print(scorePercentage)
-                secondVC.alertScore = "Score "+"\(scoreLabel)%"
+                secondVC.alertScore = "\(scoreLabel)%"
                 secondVC.alertTitle = "Aïe..."
-                secondVC.alertBody = "Ressaisissez-vous!"
+//                secondVC.alertBody = "Ressaisissez-vous!"
                 secondVC.scoreImage = UIImage(named: "angry")
             case 3..<5:
                 print(scorePercentage)
-                secondVC.alertScore = "Score "+"\(scoreLabel)%"
+                secondVC.alertScore = "\(scoreLabel)%"
                 secondVC.alertTitle = "Mouais..."
-                secondVC.alertBody = "Peut mieux faire."
+//                secondVC.alertBody = "Peut mieux faire."
                 secondVC.scoreImage = UIImage(named: "confused")
             case 5..<7:
                 print(scorePercentage)
-                secondVC.alertScore = "Score "+"\(scoreLabel)%"
+                secondVC.alertScore = "\(scoreLabel)%"
                 secondVC.alertTitle = "Pas mal du tout"
-                secondVC.alertBody = "Vous avez fait du bon boulot"
+//                secondVC.alertBody = "Vous avez fait du bon boulot"
                 secondVC.scoreImage = UIImage(named: "like")
             case 7...10:
                 print(scorePercentage)
-                secondVC.alertScore = "Score "+"\(scoreLabel)%"
+                secondVC.alertScore = "\(scoreLabel)%"
                 secondVC.alertTitle = "Félicitations!"
-                secondVC.alertBody = "Vous êtes impressionnant."
+//                secondVC.alertBody = "Vous êtes impressionnant."
                 secondVC.scoreImage = UIImage(named: "trophy")
             default:
                 print("score shown")

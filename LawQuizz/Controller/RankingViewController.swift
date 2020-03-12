@@ -29,6 +29,9 @@ class RankingViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.white,
              NSAttributedString.Key.font: UIFont(name: "SpartanMB-Bold", size: 20)!]
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+//        segmentedControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        segmentedControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
     }
     
     override func viewWillAppear(_ animated: Bool) {

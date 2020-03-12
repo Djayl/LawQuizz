@@ -12,6 +12,7 @@ import Firebase
 
 public enum FirestoreError: Error {
     case offline
+    
 }
 
 public protocol FirestoreRequest {
@@ -221,5 +222,24 @@ final public class FirestoreService<FirestoreObject: DocumentSerializableProtoco
             }
         })
     }
+
+ 
+    func checkUsername(field: String, endpoint: Endpoint, completion: @escaping (Bool) -> Void)  {
+        collection = dataBase.collection(endpoint.path)
+        collection?.whereField("userName", isEqualTo: field).getDocuments { (snapshot, err) in
+            if let err = err {
+                print("Error getting document: \(err)")
+            } else if (snapshot?.isEmpty)! {
+                completion(false)
+            } else {
+                for document in (snapshot?.documents)! {
+                    if document.data()["userName"] != nil {
+                        completion(true)
+                    }
+                }
+            }
+        }
+    }
     
+
 }

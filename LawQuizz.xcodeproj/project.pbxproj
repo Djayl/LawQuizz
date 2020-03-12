@@ -44,6 +44,7 @@
 		F0D7B180240BE3B50088F03F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B17E240BE3B50088F03F /* LaunchScreen.storyboard */; };
 		F0D7B18A240BE4830088F03F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0D7B189240BE4830088F03F /* GoogleService-Info.plist */; };
 		F0D7B18C240BE86F0088F03F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D7B18B240BE86F0088F03F /* GameViewController.swift */; };
+		F0EBCF7C241A639A00652F74 /* ButtonWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EBCF7B241A639A00652F74 /* ButtonWithImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		F0D7B181240BE3B50088F03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0D7B189240BE4830088F03F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0D7B18B240BE86F0088F03F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		F0EBCF7B241A639A00652F74 /* ButtonWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				F052EC2524113E3C0050C36A /* ViewShadowed.swift */,
 				F0536DB6241546A2006070C9 /* RankingCell.swift */,
 				F0536DB7241546A2006070C9 /* RankingCell.xib */,
+				F0EBCF7B241A639A00652F74 /* ButtonWithImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				F0580199240FC2D50040BA8B /* Profil.swift in Sources */,
 				F057BC3B2412A2760027B348 /* Double.swift in Sources */,
 				F0536570240D1446007A5D89 /* AlertService.swift in Sources */,
+				F0EBCF7C241A639A00652F74 /* ButtonWithImage.swift in Sources */,
 				F0580188240FC14B0040BA8B /* SignUpViewController.swift in Sources */,
 				F064DED5240E7AB800E4CD4E /* UIView.swift in Sources */,
 				F0536572240D14D6007A5D89 /* AlertViewController.swift in Sources */,

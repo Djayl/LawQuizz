@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 
 @available(iOS 13.0, *)
@@ -29,6 +30,7 @@ final class LoginViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor.white
         setupTextFields()
         loginButton.layer.cornerRadius = 5
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,19 +47,16 @@ final class LoginViewController: UIViewController {
     
     @IBAction private func resetPassword() {
         guard let email = emailTextField.text, emailTextField.text?.isEmpty == false else {
-//            presentAlert(with: "Il vous faut renseigner une addresse email")
-            return
-        }
-        let authService = AuthService()
-        authService.resetPassword(email: email) { [weak self] authDataResult, error in
-            if error == nil && authDataResult != nil {
-                self?.showSimpleAlert(message: "Un mail vient de vous être transmis")
-                print("password send")
-            } else {
-                print("thers is an error")
-                self?.presentAlert(with: error?.localizedDescription ?? "Erreur réseau")
-            }
-        }
+                   ProgressHUD.showError("Merci de renseigner une adresse mail.")
+                   return
+               }
+               let authService = AuthService()
+               authService.resetMyPassword(email: email, onSucess: {
+                   self.view.endEditing(true)
+                   ProgressHUD.showSuccess("Un mail vient de vous être transmis. Merci de vérifier votre boite mail et suivre les indications.")
+               }) { (errorMessage) in
+                   ProgressHUD.showError(errorMessage)
+               }
     }
     
     @IBAction private func noAccount(_ sender: Any) {

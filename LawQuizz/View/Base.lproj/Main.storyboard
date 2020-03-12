@@ -736,6 +736,8 @@
                                             <segment title="Mon classement"/>
                                             <segment title="Mon école"/>
                                         </segments>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="selectedSegmentTintColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <action selector="didChooseData:" destination="jEh-rI-iOV" eventType="valueChanged" id="D81-0k-1W2"/>
                                         </connections>
@@ -781,7 +783,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iHK-Ye-Pn5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iHK-Ye-Pn5">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -908,7 +910,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ii-6N-i26" userLabel="Content View">
-                                <rect key="frame" x="40" y="134.5" width="240" height="299.5"/>
+                                <rect key="frame" x="40" y="126" width="240" height="316.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p7A-c3-Xb4">
                                         <rect key="frame" x="55" y="16" width="130" height="130"/>
@@ -929,28 +931,36 @@
                                         <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78c-hg-Ert">
-                                        <rect key="frame" x="8" y="258.5" width="224" height="25"/>
-                                        <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6o2-95-lb2" customClass="ButtonWithImage" customModule="LawQuizz" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="258.5" width="224" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="0xS-oF-3oc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="20"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapShare:" destination="KtJ-AB-kM1" eventType="touchUpInside" id="MxN-fs-oNd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="06q-te-Ffa"/>
-                                    <constraint firstAttribute="trailing" secondItem="78c-hg-Ert" secondAttribute="trailing" constant="8" id="9ar-kD-7po"/>
                                     <constraint firstItem="8JR-gp-BUr" firstAttribute="top" secondItem="p7A-c3-Xb4" secondAttribute="bottom" constant="8" id="CeL-TD-CAi"/>
                                     <constraint firstAttribute="trailing" secondItem="gcz-JJ-buK" secondAttribute="trailing" constant="16" id="EBG-CO-41J"/>
                                     <constraint firstItem="p7A-c3-Xb4" firstAttribute="top" secondItem="6Ii-6N-i26" secondAttribute="top" constant="16" id="HZL-zh-4gn"/>
+                                    <constraint firstItem="6o2-95-lb2" firstAttribute="top" secondItem="gcz-JJ-buK" secondAttribute="bottom" constant="16" id="TbT-Uh-gZC"/>
+                                    <constraint firstAttribute="bottom" secondItem="6o2-95-lb2" secondAttribute="bottom" constant="8" id="ZOi-nT-eMX"/>
                                     <constraint firstItem="p7A-c3-Xb4" firstAttribute="centerX" secondItem="6Ii-6N-i26" secondAttribute="centerX" id="ar7-Vn-xl2"/>
-                                    <constraint firstItem="78c-hg-Ert" firstAttribute="leading" secondItem="6Ii-6N-i26" secondAttribute="leading" constant="8" id="dIY-wK-TCc"/>
                                     <constraint firstItem="gcz-JJ-buK" firstAttribute="leading" secondItem="6Ii-6N-i26" secondAttribute="leading" constant="16" id="hGF-xU-qo3"/>
                                     <constraint firstAttribute="trailing" secondItem="8JR-gp-BUr" secondAttribute="trailing" constant="16" id="oPE-fY-0Ye"/>
-                                    <constraint firstAttribute="bottom" secondItem="78c-hg-Ert" secondAttribute="bottom" constant="16" id="sYZ-1p-bDL"/>
+                                    <constraint firstItem="6o2-95-lb2" firstAttribute="leading" secondItem="6Ii-6N-i26" secondAttribute="leading" constant="8" id="trD-9M-dSa"/>
                                     <constraint firstItem="8JR-gp-BUr" firstAttribute="leading" secondItem="6Ii-6N-i26" secondAttribute="leading" constant="16" id="tvz-tn-FYv"/>
                                     <constraint firstItem="gcz-JJ-buK" firstAttribute="top" secondItem="8JR-gp-BUr" secondAttribute="bottom" constant="10" id="vEj-ZH-dL0"/>
-                                    <constraint firstItem="78c-hg-Ert" firstAttribute="top" secondItem="gcz-JJ-buK" secondAttribute="bottom" constant="16" id="xCP-2O-u5I"/>
+                                    <constraint firstAttribute="trailing" secondItem="6o2-95-lb2" secondAttribute="trailing" constant="8" id="zck-vy-Qir"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkK-p8-vss">
@@ -973,16 +983,16 @@
                         <viewLayoutGuide key="safeArea" id="7S2-xa-BcU"/>
                     </view>
                     <connections>
-                        <outlet property="bodyLabel" destination="78c-hg-Ert" id="uWY-L6-826"/>
                         <outlet property="contentView" destination="6Ii-6N-i26" id="Rqu-rx-1di"/>
                         <outlet property="scoreImageView" destination="p7A-c3-Xb4" id="eeQ-Ot-K4u"/>
                         <outlet property="scoreLabel" destination="gcz-JJ-buK" id="MAm-nS-SBh"/>
+                        <outlet property="shareButton" destination="6o2-95-lb2" id="CnM-9b-Daj"/>
                         <outlet property="titleLabel" destination="8JR-gp-BUr" id="4Iu-bD-nHh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbj-o8-gcF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1963" y="-661"/>
+            <point key="canvasLocation" x="1961.25" y="-661.26760563380287"/>
         </scene>
         <!--Summary View Controller-->
         <scene sceneID="JcV-qr-jLQ">
@@ -1266,7 +1276,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rIR-fx-BrA">
-                                <rect key="frame" x="16" y="154" width="288" height="166"/>
+                                <rect key="frame" x="16" y="140" width="288" height="166"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom d'utilisateur" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Stp-Gi-Whq">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="34"/>
@@ -1299,7 +1309,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Où étudiez-vous ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKu-qK-rYE">
-                                <rect key="frame" x="16" y="340" width="288" height="25"/>
+                                <rect key="frame" x="16" y="326" width="288" height="25"/>
                                 <fontDescription key="fontDescription" name="SpartanMB-Regular" family="Spartan MB" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1319,7 +1329,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elZ-YL-0c4">
-                                <rect key="frame" x="16" y="366" width="288" height="90"/>
+                                <rect key="frame" x="16" y="352" width="288" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="ErI-gp-25A"/>
                                 </constraints>
@@ -1343,7 +1353,7 @@
                             <constraint firstItem="5a0-Nf-wau" firstAttribute="leading" secondItem="JeY-UP-rjO" secondAttribute="leading" constant="60" id="eal-ag-MYq"/>
                             <constraint firstItem="JeY-UP-rjO" firstAttribute="trailing" secondItem="5a0-Nf-wau" secondAttribute="trailing" constant="60" id="een-l7-P4k"/>
                             <constraint firstItem="dKu-qK-rYE" firstAttribute="leading" secondItem="JeY-UP-rjO" secondAttribute="leading" constant="16" id="h9W-D9-l5c"/>
-                            <constraint firstItem="rIR-fx-BrA" firstAttribute="top" secondItem="9IP-wc-wC3" secondAttribute="bottom" constant="44" id="rtB-Wp-9wB"/>
+                            <constraint firstItem="rIR-fx-BrA" firstAttribute="top" secondItem="9IP-wc-wC3" secondAttribute="bottom" constant="30" id="rtB-Wp-9wB"/>
                             <constraint firstItem="elZ-YL-0c4" firstAttribute="leading" secondItem="JeY-UP-rjO" secondAttribute="leading" constant="16" id="zzJ-8u-x2W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JeY-UP-rjO"/>

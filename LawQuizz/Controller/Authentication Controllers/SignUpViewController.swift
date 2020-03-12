@@ -32,6 +32,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     var placeholderLabel = UILabel()
     let schools = ["","Paris 1", "Paris 2", "Paris 3"]
     var school = ""
+    var users = [String]()
     
     // MARK: - View Life Cycle
     
@@ -55,7 +56,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
-        
+        fecthUsersCollection()
     }
 
     
@@ -83,6 +84,23 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         passwordConfirmTextField.layer.cornerRadius = 5
         userNameTextField.layer.cornerRadius = 5
     }
+    
+    private func fecthUsersCollection() {
+              let firestoreService = FirestoreService<Profil>()
+              firestoreService.fetchCollection(endpoint: .user) { [weak self] result in
+                  switch result {
+                  case .success(let users):
+                    for user in users {
+                        self?.users.append(user.userName)
+                    }
+                  case .failure(let error):
+                      print(error.localizedDescription)
+                      self?.presentAlert(with: "Erreur réseau")
+                  }
+              }
+          }
+
+    
     
     internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
@@ -121,6 +139,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
            
                presentAlert(with: "Merci de renseigner un nom d'utilisateur")
                return}
+        guard !users.contains(userName) else {
+            presentAlert(with: "Ce nom d'utilisateur est déjà pris")
+            return}
            guard let email = emailTextField.text, email.isEmptyOrWhitespace() == false else {
             
                presentAlert(with: "Merci de renseigner un email")
