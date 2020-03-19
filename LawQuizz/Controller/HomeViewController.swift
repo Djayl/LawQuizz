@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         setupButtons()
         setupScoreView()
         setupStackView()
@@ -98,6 +99,15 @@ class HomeViewController: UIViewController {
          self.navigationController?.pushViewController(secondVC, animated: true)
     }
     
+    fileprivate func setupNavigationBar() {
+        let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 40))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 270, height: 40))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "logo")
+        imageView.image = image
+        logoContainer.addSubview(imageView)
+        navigationItem.titleView = logoContainer
+    }
     
     private func pushToGameVC(_ data: String) {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "GameVC") as! GameViewController

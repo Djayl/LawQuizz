@@ -386,7 +386,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="17"/>
                                                         <state key="normal" title="Droit civil">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="didTapThema:" destination="74d-jF-yDK" eventType="touchUpInside" id="70Z-HQ-HVd"/>
@@ -400,7 +400,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="17"/>
                                                         <state key="normal" title="Droit public">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="didTapThema:" destination="74d-jF-yDK" eventType="touchUpInside" id="QUa-ym-btK"/>
@@ -414,7 +414,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="17"/>
                                                         <state key="normal" title="Histoire du droit">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="didTapThema:" destination="74d-jF-yDK" eventType="touchUpInside" id="CzK-Pt-mqr"/>
@@ -428,7 +428,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="17"/>
                                                         <state key="normal" title="Droit des affaires">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="didTapThema:" destination="74d-jF-yDK" eventType="touchUpInside" id="9gi-Yw-3PO"/>
@@ -442,7 +442,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="17"/>
                                                         <state key="normal" title="Grand oral">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="didTapThema:" destination="74d-jF-yDK" eventType="touchUpInside" id="Wbe-sR-PHV"/>
@@ -453,12 +453,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdc-4C-JQI" userLabel="TopView">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nemo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiX-de-BHX">
-                                                        <rect key="frame" x="123" y="75" width="74" height="35"/>
-                                                        <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="24"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrZ-l4-qkA">
                                                         <rect key="frame" x="234" y="57.5" width="70" height="70"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -471,14 +465,18 @@
                                                             <action selector="goToProfile:" destination="74d-jF-yDK" eventType="touchUpInside" id="n9L-W3-fQf"/>
                                                         </connections>
                                                     </button>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="qWW-ZE-ufE">
+                                                        <rect key="frame" x="102" y="56" width="116" height="73"/>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.19060003759999999" green="0.24882894750000001" blue="0.33726659419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstItem="wrZ-l4-qkA" firstAttribute="centerY" secondItem="FiX-de-BHX" secondAttribute="centerY" id="7qu-pJ-r0z"/>
                                                     <constraint firstAttribute="height" constant="150" id="Job-2X-2rQ"/>
-                                                    <constraint firstAttribute="bottom" secondItem="FiX-de-BHX" secondAttribute="bottom" constant="40" id="Q4a-J4-4sK"/>
-                                                    <constraint firstItem="FiX-de-BHX" firstAttribute="centerX" secondItem="fdc-4C-JQI" secondAttribute="centerX" id="Rrs-9t-3EA"/>
+                                                    <constraint firstItem="wrZ-l4-qkA" firstAttribute="leading" secondItem="qWW-ZE-ufE" secondAttribute="trailing" constant="16" id="O1L-TT-dNS"/>
                                                     <constraint firstAttribute="trailing" secondItem="wrZ-l4-qkA" secondAttribute="trailing" constant="16" id="hDS-zs-du5"/>
+                                                    <constraint firstItem="qWW-ZE-ufE" firstAttribute="top" secondItem="fdc-4C-JQI" secondAttribute="top" constant="56" id="ntw-LC-Nkf"/>
+                                                    <constraint firstAttribute="bottom" secondItem="qWW-ZE-ufE" secondAttribute="bottom" constant="21" id="oGF-4T-oSF"/>
+                                                    <constraint firstItem="wrZ-l4-qkA" firstAttribute="centerY" secondItem="qWW-ZE-ufE" secondAttribute="centerY" id="sdG-CE-7A7"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qp-eg-RT9" userLabel="Score View">
@@ -486,7 +484,7 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVg-6Z-bX4">
                                                         <rect key="frame" x="143" y="18" width="2" height="40"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="FXP-mE-MQw"/>
                                                             <constraint firstAttribute="width" constant="2" id="aXP-kQ-o9Z"/>
@@ -497,7 +495,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUN-CB-JxE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="60" id="AQv-QZ-6dI"/>
                                                                     <constraint firstAttribute="height" constant="60" id="p3j-NH-Xim"/>
@@ -510,7 +508,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJv-sY-22o">
                                                                 <rect key="frame" x="65" y="0.0" width="62" height="60"/>
                                                                 <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="16"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -520,7 +518,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpH-8Z-Qpp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="Xwf-k9-ZZ3"/>
                                                                     <constraint firstAttribute="width" constant="60" id="xTn-ls-GcC"/>
@@ -533,7 +531,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAW-8k-hGE">
                                                                 <rect key="frame" x="65" y="0.0" width="62" height="60"/>
                                                                 <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="16"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -562,6 +560,7 @@
                                             <constraint firstAttribute="trailing" secondItem="fdc-4C-JQI" secondAttribute="trailing" id="Psz-Dj-D0h"/>
                                             <constraint firstAttribute="trailing" secondItem="0qp-eg-RT9" secondAttribute="trailing" constant="16" id="acN-k9-Hbw"/>
                                             <constraint firstItem="fdc-4C-JQI" firstAttribute="top" secondItem="HDk-cw-wuM" secondAttribute="top" id="cL9-Ji-9Ux"/>
+                                            <constraint firstItem="qWW-ZE-ufE" firstAttribute="centerX" secondItem="0qp-eg-RT9" secondAttribute="centerX" id="cRw-Np-fk7"/>
                                             <constraint firstAttribute="trailing" secondItem="BFa-BJ-SFy" secondAttribute="trailing" constant="16" id="k1Y-4b-pnb"/>
                                             <constraint firstItem="fdc-4C-JQI" firstAttribute="leading" secondItem="HDk-cw-wuM" secondAttribute="leading" id="mEx-IY-28v"/>
                                             <constraint firstItem="BFa-BJ-SFy" firstAttribute="top" secondItem="0qp-eg-RT9" secondAttribute="bottom" constant="40" id="pzL-FM-CfD"/>
@@ -1396,6 +1395,7 @@
     <resources>
         <image name="account" width="42.5" height="42.5"/>
         <image name="letter-x" width="42.5" height="42.5"/>
+        <image name="logo" width="760" height="432"/>
         <image name="podium-1" width="42.5" height="42.5"/>
         <image name="school-1" width="42.5" height="42.5"/>
     </resources>
