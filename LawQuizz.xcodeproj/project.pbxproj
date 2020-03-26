@@ -31,11 +31,14 @@
 		F0580197240FC2B20040BA8B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580196240FC2B20040BA8B /* Question.swift */; };
 		F0580199240FC2D50040BA8B /* Profil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0580198240FC2D50040BA8B /* Profil.swift */; };
 		F058019B240FC2F40040BA8B /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */; };
+		F0597FF0242B726200924E63 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0597FEF242B726200924E63 /* IAPService.swift */; };
 		F05AE7512417A62B001D8D62 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05AE7502417A62B001D8D62 /* School.swift */; };
 		F05BF8FB24150CEC00042936 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05BF8FA24150CEC00042936 /* Dictionary.swift */; };
 		F064DED3240E765B00E4CD4E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED2240E765B00E4CD4E /* HomeViewController.swift */; };
 		F064DED5240E7AB800E4CD4E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED4240E7AB800E4CD4E /* UIView.swift */; };
 		F064DED7240E7DD700E4CD4E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064DED6240E7DD700E4CD4E /* Colors.swift */; };
+		F0986F6B242BA78B0095B002 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0986F6A242BA78B0095B002 /* IAPProducts.swift */; };
+		F0986F6D242BB5D30095B002 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0986F6C242BB5D30095B002 /* StoreKit.framework */; };
 		F0AE716B240FD845002E5387 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE716A240FD845002E5387 /* ProfileViewController.swift */; };
 		F0AEA2E32417E8BC00114C9E /* GeneralRankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AEA2E22417E8BC00114C9E /* GeneralRankingViewController.swift */; };
 		F0D7B174240BE3B40088F03F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D7B173240BE3B40088F03F /* AppDelegate.swift */; };
@@ -74,11 +77,14 @@
 		F0580196240FC2B20040BA8B /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F0580198240FC2D50040BA8B /* Profil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profil.swift; sourceTree = "<group>"; };
 		F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
+		F0597FEF242B726200924E63 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
 		F05AE7502417A62B001D8D62 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		F05BF8FA24150CEC00042936 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		F064DED2240E765B00E4CD4E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F064DED4240E7AB800E4CD4E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		F064DED6240E7DD700E4CD4E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F0986F6A242BA78B0095B002 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
+		F0986F6C242BB5D30095B002 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F0AE716A240FD845002E5387 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F0AEA2E22417E8BC00114C9E /* GeneralRankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRankingViewController.swift; sourceTree = "<group>"; };
 		F0D7B170240BE3B40088F03F /* LawQuizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LawQuizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C82A455C497F5BDFCDED326 /* Pods_LawQuizz.framework in Frameworks */,
+				F0986F6D242BB5D30095B002 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +167,8 @@
 				F0580198240FC2D50040BA8B /* Profil.swift */,
 				F058019A240FC2F40040BA8B /* FirebaseStorageManager.swift */,
 				F05AE7502417A62B001D8D62 /* School.swift */,
+				F0597FEF242B726200924E63 /* IAPService.swift */,
+				F0986F6A242BA78B0095B002 /* IAPProducts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +236,7 @@
 		F6FAB054E3F335EFD5968B4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0986F6C242BB5D30095B002 /* StoreKit.framework */,
 				CB668BB5CBAEA1FD4A6A132D /* Pods_LawQuizz.framework */,
 			);
 			name = Frameworks;
@@ -376,6 +386,8 @@
 				F053D2FF240EFACD0090A1EB /* UIButton.swift in Sources */,
 				F058018A240FC1810040BA8B /* LoginViewController.swift in Sources */,
 				F052EC2624113E3C0050C36A /* ViewShadowed.swift in Sources */,
+				F0597FF0242B726200924E63 /* IAPService.swift in Sources */,
+				F0986F6B242BA78B0095B002 /* IAPProducts.swift in Sources */,
 				F05BF8FB24150CEC00042936 /* Dictionary.swift in Sources */,
 				F05749AD241263DE008ECD24 /* SummaryViewController.swift in Sources */,
 				F0580195240FC28A0040BA8B /* UIViewController.swift in Sources */,

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Eny-CE-UUb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Eny-CE-UUb">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -664,22 +664,49 @@
                                 <color key="textColor" red="0.81276744599999995" green="0.85797315839999999" blue="0.8980460763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htp-qn-og9">
+                                <rect key="frame" x="60" y="346" width="200" height="41"/>
+                                <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="20"/>
+                                <state key="normal" title="S'abonner">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapPurchase:" destination="Sg9-pL-7Dt" eventType="touchUpInside" id="UdE-Qg-4ta"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtq-Re-pvh">
+                                <rect key="frame" x="50" y="447" width="220" height="41"/>
+                                <fontDescription key="fontDescription" name="SpartanMB-Bold" family="Spartan MB" pointSize="20"/>
+                                <state key="normal" title="Restaurer les achats">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapPurchase:" destination="Sg9-pL-7Dt" eventType="touchUpInside" id="8cM-Fi-eMa"/>
+                                    <action selector="didTapRestore:" destination="Sg9-pL-7Dt" eventType="touchUpInside" id="8gC-6v-5tH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14655175810000001" green="0.16672194000000001" blue="0.2431467175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="oPP-3s-5j0" firstAttribute="top" secondItem="1wI-6B-KD6" secondAttribute="bottom" constant="16" id="1SF-aB-zWW"/>
                             <constraint firstItem="FXn-kQ-6gE" firstAttribute="leading" secondItem="VCS-4T-cI9" secondAttribute="trailing" constant="16" id="C2W-5V-J6V"/>
                             <constraint firstItem="oPP-3s-5j0" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="E7f-cc-vPe"/>
+                            <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="Htp-qn-og9" secondAttribute="trailing" constant="60" id="GcQ-MW-pFk"/>
                             <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="FXn-kQ-6gE" secondAttribute="trailing" constant="16" id="Jrb-mn-Acy"/>
+                            <constraint firstItem="Qtq-Re-pvh" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="50" id="MeD-ez-Ndg"/>
+                            <constraint firstItem="Htp-qn-og9" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="60" id="Mkg-bR-YdO"/>
                             <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="1wI-6B-KD6" secondAttribute="trailing" constant="16" id="NoU-kp-ng2"/>
+                            <constraint firstItem="Qtq-Re-pvh" firstAttribute="top" secondItem="Htp-qn-og9" secondAttribute="bottom" constant="60" id="Q72-Uq-919"/>
                             <constraint firstItem="VCS-4T-cI9" firstAttribute="top" secondItem="abW-0i-fXh" secondAttribute="top" constant="40" id="QTa-co-7pN"/>
                             <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="SU6-MJ-EZO" secondAttribute="trailing" constant="16" id="a0S-av-vpr"/>
+                            <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="Qtq-Re-pvh" secondAttribute="trailing" constant="50" id="cVF-uv-YAs"/>
                             <constraint firstItem="1wI-6B-KD6" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="ezM-xu-C9y"/>
                             <constraint firstItem="SU6-MJ-EZO" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="fKV-Rf-o6l"/>
                             <constraint firstItem="abW-0i-fXh" firstAttribute="trailing" secondItem="oPP-3s-5j0" secondAttribute="trailing" constant="16" id="hnF-xx-TAI"/>
                             <constraint firstItem="VCS-4T-cI9" firstAttribute="leading" secondItem="abW-0i-fXh" secondAttribute="leading" constant="16" id="oUy-X6-wvG"/>
                             <constraint firstItem="1wI-6B-KD6" firstAttribute="top" secondItem="SU6-MJ-EZO" secondAttribute="bottom" constant="20" id="pAO-Nl-pwA"/>
                             <constraint firstItem="SU6-MJ-EZO" firstAttribute="top" secondItem="VCS-4T-cI9" secondAttribute="bottom" constant="40" id="qAS-RJ-JL1"/>
+                            <constraint firstItem="abW-0i-fXh" firstAttribute="bottom" secondItem="Qtq-Re-pvh" secondAttribute="bottom" constant="80" id="rIy-NH-G21"/>
                             <constraint firstItem="FXn-kQ-6gE" firstAttribute="top" secondItem="VCS-4T-cI9" secondAttribute="top" id="tcN-tU-1Kd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="abW-0i-fXh"/>

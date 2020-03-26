@@ -37,6 +37,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupImageView()
         setDeleteButton()
+        IAPService.shared.getProducts()
         
 //        getAllUsersPosition()
     }
@@ -50,6 +51,14 @@ class ProfileViewController: UIViewController {
         displaySchoolRank()
 //        fecthUsersCollection()
         
+    }
+    
+    @IBAction func didTapPurchase(_ sender: Any) {
+        IAPService.shared.purchase(product: .autoRenewableSubscription)
+    }
+    
+    @IBAction func didTapRestore(_ sender: Any) {
+        IAPService.shared.restorePurchases()
     }
     
     private func setupImageView() {
