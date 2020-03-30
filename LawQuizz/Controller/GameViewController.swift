@@ -179,7 +179,12 @@ class GameViewController: UIViewController {
       
       private func outOfTime() {
         UIView.animate(withDuration: 0.3) { () -> Void in
-            self.progressView.alpha = 0.0
+//            self.progressView.alpha = 0.0
+            self.questionAnswered += 1
+            self.wrongAnswers += 1
+            self.scoreLabel.text = "Score: \(self.score)/\(self.questionAnswered)"
+            let playerAnswer = "Vous n'avez pas répondu"
+            self.playerAnswers.append(playerAnswer)
             self.gameTimer?.invalidate()
             self.fetchQuestion()
         }

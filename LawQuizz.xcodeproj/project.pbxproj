@@ -87,7 +87,7 @@
 		F0986F6C242BB5D30095B002 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F0AE716A240FD845002E5387 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F0AEA2E22417E8BC00114C9E /* GeneralRankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRankingViewController.swift; sourceTree = "<group>"; };
-		F0D7B170240BE3B40088F03F /* LawQuizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LawQuizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0D7B170240BE3B40088F03F /* Nemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D7B173240BE3B40088F03F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D7B17A240BE3B40088F03F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0D7B17C240BE3B50088F03F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 		F0D7B171240BE3B40088F03F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F0D7B170240BE3B40088F03F /* LawQuizz.app */,
+				F0D7B170240BE3B40088F03F /* Nemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 			);
 			name = LawQuizz;
 			productName = LawQuizz;
-			productReference = F0D7B170240BE3B40088F03F /* LawQuizz.app */;
+			productReference = F0D7B170240BE3B40088F03F /* Nemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -545,7 +545,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.djilalisakkar.LawQuizz;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nemo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -564,7 +564,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.djilalisakkar.LawQuizz;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nemo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
